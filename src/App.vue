@@ -1,16 +1,19 @@
 <template>
-  <div id="app">
+  <div id="app" @contextmenu.prevent="">
     <topNav v-if="false"></topNav>
     <router-view/>
+    <robot></robot>
   </div>
 </template>
 
 <script>
+import robot from '@/components/robotMenu'
 import topNav from '@/components/topNav.vue'
 export default {
   name: 'app',
   components: {
-    topNav
+    topNav,
+    robot
   },
   methods: {
   }
@@ -18,6 +21,7 @@ export default {
 </script>
 
 <style>
+@import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css";
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

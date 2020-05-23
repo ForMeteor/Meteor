@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-  <div class="robotBox">
+  <div class="robotBox" @click="menuClick" @contextmenu.prevent="right()">
       <div class="robot_img" :class="{'pdro_1':pdr,'pdro_2':!pdr}" @click="fast"></div>
   </div>
 </template>
@@ -21,6 +21,12 @@ export default {
   mounted () {},
 
   methods: {
+    right () {
+      console.log('右键')
+    },
+    menuClick () {
+      console.log('menuclick')
+    },
     fast () {
       this.pdr = false
       setTimeout(() => {
