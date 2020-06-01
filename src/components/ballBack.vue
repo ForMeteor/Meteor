@@ -1,8 +1,7 @@
 <!-- 背景动画 -->
 <template>
   <div class="normal_back" @click="backClick()">
-    <div class="theme_ctrl" @click="theme">页面特效</div>
-    <canvas id="myCanvas" class="canvas" v-show="btnCtrl"></canvas>
+    <canvas id="myCanvas" class="canvas"></canvas>
   </div>
 </template>
 
@@ -11,7 +10,6 @@ export default {
   name: 'ballBack',
   data () {
     return {
-      btnCtrl: true,
       textPx: '',
       ballData: [],
       width: '',
@@ -28,9 +26,6 @@ export default {
   },
 
   methods: {
-    theme () {
-      this.btnCtrl = !this.btnCtrl
-    },
     backClick () {
       console.log('点击')
     },

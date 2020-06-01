@@ -5,8 +5,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    catShow: true,
+    backShow: true,
   },
   mutations: {
+    changeCat(state){
+      state.catShow = !state.catShow
+    },
+    changeBack(state){
+      state.backShow = !state.backShow
+    }
   },
   actions: {
   },

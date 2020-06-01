@@ -6,6 +6,8 @@
       <div class="sx2"></div>
       <!-- <div class="hide"></div> -->
     </div>
+    <div onclick="var a=1;console.log(a);console.log(this)">111</div>
+    <div @click="foo(this)">222</div>
   </div>
 </template>
 
@@ -29,7 +31,10 @@ export default {
   },
 
   methods: {
-
+    foo (t) {
+      console.log(t)
+      console.log(this)
+    }
   }
 }
 

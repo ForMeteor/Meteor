@@ -40,6 +40,7 @@ export default {
 <style  scoped>
 .robotBox{
     position: fixed;
+    z-index: 150;
     left: 20px;bottom: 20px;
     width: 100px;
     height: 100px;
