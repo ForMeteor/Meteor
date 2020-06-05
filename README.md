@@ -20,6 +20,7 @@ npm run build
 npm run lint
 ```
 ### components
-ballBack   圆球背景
-robotMenu  精灵菜单
+animateCtrl   动画控制菜单
+ballBack      背景 彩球
+robotMenu     精灵菜单
 ### ?
