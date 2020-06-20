@@ -4,11 +4,10 @@
     <div class="ctrl_box" @click="wrapCtrl" v-show="wrapShow">0.0</div>
     <div class="ctrl_box" @click="wrapCtrl" v-show="!wrapShow">^_^</div>
     <div class="ctrl_wrap" v-show="wrapShow">
-      <div class="ctrl_item" @click="theme">页面特效</div>
-      <div class="ctrl_item" @click="robotMenu">猫猫咪咪</div>
-      <div class="ctrl_item" @click="robotMenu">咕噜咕噜</div>
-      <div class="ctrl_item" @click="robotMenu">咕噜咕噜</div>
-      <div class="ctrl_item" @click="robotMenu">咕噜咕噜</div>
+      <div class="ctrl_item" @click="theme">background</div>
+      <div class="ctrl_item" @click="robotMenu">cat</div>
+      <div class="ctrl_item" @click="home">home</div>
+      <div class="ctrl_item" v-for="r in aniData" :key="r.name" @click="ani(r.path)">{{r.name}}</div>
     </div>
   </div>
 </template>
@@ -19,7 +18,21 @@ export default {
   data () {
     return {
       wrapShow: false,
-      timer: null
+      timer: null,
+      aniData: [
+        {
+          name: 'ani_1',
+          path: 'ani_1'
+        },
+        {
+          name: 'ani_2',
+          path: 'ani_2'
+        },
+        {
+          name: 'ani_3',
+          path: 'ani_3'
+        }
+      ]
     }
   },
 
@@ -50,6 +63,12 @@ export default {
     robotMenu () {
       this.$store.commit('changeCat')
       this.wrapShow = false
+    },
+    home () {
+      this.$router.push('home')
+    },
+    ani (path) {
+      this.$router.push(path)
     }
   }
 }
@@ -61,6 +80,7 @@ export default {
   z-index: 500;
   right: 10px;top: 5px;
   text-align: center;
+  background: #ffffff;
   width: 100px;height: 20px;line-height: 20px;
   border:1px solid #e5e5e5;
   border-radius: 5px;
@@ -69,7 +89,7 @@ export default {
 .ctrl_wrap{
   position: fixed;
   z-index: 500;
-  right: 10px;top: 27px;
+  right: 12px;top: 27px;
   width: 100px;
   user-select: none;
 }
@@ -78,6 +98,7 @@ export default {
   width: 100px;
   border: 1px solid #e5e5e5;
   height: 20px;line-height: 20px;
+  background: #ffffff;
   margin-bottom: 2px;
 }
 .ctrl_item:hover{

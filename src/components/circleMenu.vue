@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     go () {
-      this.$router.push('ani_1')
+      this.$router.push('about')
     }
   }
 }

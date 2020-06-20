@@ -1,7 +1,6 @@
 <!--  -->
 <template>
-  <div>
-      <div id="info"></div>
+  <div id="ani_1">
   </div>
 </template>
 
@@ -89,7 +88,7 @@ export default {
       // 相机 渲染器
       const renderer = new THREE.WebGLRenderer()
       renderer.setSize(window.innerWidth, window.innerHeight)
-      document.body.appendChild(renderer.domElement)
+      document.getElementById('ani_1').appendChild(renderer.domElement)
       const geometry = new THREE.BoxGeometry(1, 1, 1) // 立方体
       const material = new THREE.MeshBasicMaterial({ color: 0x0000FF }) // 材质
       const cube = new THREE.Mesh(geometry, material)
