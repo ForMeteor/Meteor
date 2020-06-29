@@ -106,14 +106,4 @@ export default {
 
 </script>
 <style  scoped>
-.theme_ctrl{
-  position: fixed;
-  right: 10px;top: 5px;
-  border-radius: 5px;
-  border: 1px solid #e5e5e5;
-  width: 100px;height: 20px;line-height: 20px;
-}
-.theme_ctrl:hover{
-  cursor: pointer;
-}
 </style>

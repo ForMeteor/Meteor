@@ -16,6 +16,7 @@ export default {
       plane: null, // 平面
       cube: null, // 立方体
       sphere: null, // 球
+      door: null, // 门
       step: 0
     }
   },
@@ -56,9 +57,15 @@ export default {
       this.cube.castShadow = true
       this.cube.position.set(-10, 3, 0)
       this.scene.add(this.cube)
+      // a
+      const doorbox = new THREE.BoxBufferGeometry(10, 20, 0.5)
+      const doorMaterial = new THREE.MeshLambertMaterial({ color: 0xd88c00 })
+      this.door = new THREE.Mesh(doorbox, doorMaterial)
+      this.door.position.set(0, 0, 0) // 调整门在外层对象中的相对位置
+      this.scene.add(this.door)
       //  a
-      let sphereGeometry = new THREE.SphereGeometry(4, 4, 4)
-      let sphereMaterial = new THREE.MeshLambertMaterial({
+      let sphereGeometry = new THREE.SphereGeometry(4, 20, 20)
+      let sphereMaterial = new THREE.MeshBasicMaterial({
         color: 0x7777FF,
         wireframe: false
       })

@@ -9,7 +9,8 @@
 </template>
 
 <script>
-import Back from '@/components/ballBack'
+// import Back from '@/components/canvas/ballBack'
+import Back from '@/components/canvas/triangle'
 import robot from '@/components/robotMenu'
 import topNav from '@/components/topNav.vue'
 import ctrl from '@/components/animateCtrl.vue'
