@@ -5,8 +5,10 @@ import router from './router'
 import store from './store'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+// import sept from 'sept_vue'
 // import animated from 'animate.css'
 // Vue.use(animated)
+// console.log(sept_vue)
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 new Vue({

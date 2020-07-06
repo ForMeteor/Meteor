@@ -4,7 +4,7 @@
     <div class="ctrl_box" @click="wrapCtrl" v-show="wrapShow">0.0</div>
     <div class="ctrl_box" @click="wrapCtrl" v-show="!wrapShow">^_^</div>
     <div class="ctrl_wrap" v-show="wrapShow">
-      <div class="ctrl_item" @click="theme">background</div>
+      <!-- <div class="ctrl_item" @click="theme">background</div> -->
       <div class="ctrl_item" @click="robotMenu">cat</div>
       <div class="ctrl_item" @click="home">home</div>
       <div class="ctrl_item" v-for="r in aniData" :key="r.name" @click="ani(r.path)">{{r.name}}</div>
@@ -31,6 +31,14 @@ export default {
         {
           name: 'ani_3',
           path: 'ani_3'
+        },
+        {
+          name: 'loadList',
+          path: 'loadingList'
+        },
+        {
+          name: 'webSocket',
+          path: 'webTest'
         }
       ]
     }

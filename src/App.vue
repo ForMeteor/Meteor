@@ -56,6 +56,12 @@ export default {
   margin-top: 60px;
   padding: 0;margin: 0;
 }
+*{
+  padding: 0;margin: 0;
+}
+li{
+  list-style:none;
+}
 .normal_back{
   position:absolute;
   bottom: 0;right: 0;
