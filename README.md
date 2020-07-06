@@ -1,4 +1,4 @@
-# diviny
+# destiny
 # 动态路由 权限管理 动画 样式 
 ## Project setup
 ```
