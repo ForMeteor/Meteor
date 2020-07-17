@@ -39,6 +39,10 @@ export default {
         {
           name: 'webSocket',
           path: 'webTest'
+        },
+        {
+          name: 'pcTest',
+          path: 'jsTest'
         }
       ]
     }
