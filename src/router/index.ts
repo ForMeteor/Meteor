@@ -36,6 +36,11 @@ const routes: Array<RouteConfig> = [
     component: () => import('../views/jsTest.vue')
   },
   {
+    path: '/cssTest',
+    name: 'cssTest',
+    component: () => import('../views/cssTest.vue')
+  },
+  {
     path: '/ani_1',
     name: 'ani_1',
     component: () => import('../views/ani/ani_1.vue')

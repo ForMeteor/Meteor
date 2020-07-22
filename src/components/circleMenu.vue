@@ -10,6 +10,7 @@
 <script>
 export default {
   name: 'circleMenu',
+  props: ['mack'],
   data () {
     return {
     }
@@ -17,6 +18,7 @@ export default {
   components: {},
   computed: {},
   mounted () {
+    console.log(this.mack)
   },
   methods: {
     go () {

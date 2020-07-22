@@ -42,10 +42,10 @@ export default {
         this.moveBalls(ctx)
         this.drawBalls(ctx)
       }, 10)
-      const lay1 = document.createElement('canvas')
-      const lay1Context = lay1.getContext('2d')
-      lay1Context.fillStyle = '00ff00'
-      lay1Context.fillRect(10, 10, 40, 40)
+      // const lay1 = document.createElement('canvas')
+      // const lay1Context = lay1.getContext('2d')
+      // lay1Context.fillStyle = '00ff00'
+      // lay1Context.fillRect(10, 10, 40, 40)
     },
     creatBalls () {
       for (let i = 0; i < 100; i++) {
