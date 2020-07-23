@@ -7,17 +7,14 @@
       <div class="ttt" @click="change">
         {{mile}}
       </div>
-      <Load></Load>
   </div>
 </template>
 
 <script>
 import { BG } from '@/common/constant'
-import Load from '@/components/loading'
 export default {
   name: 'jsTest',
   components: {
-    Load
   },
   data () {
     return {
@@ -48,10 +45,16 @@ export default {
 
   mounted () {
     console.log(BG)
-    const words = Array(2)
-    console.log(words)
+    const yu = 1111
+    const ty = {
+      a: 1,
+      b: 2
+    }
+    const words = { yu, ty }
+    words.ty.a = 2
+    console.log(ty)
     class Person {
-      constructor(name, age, sex) {
+      constructor (name, age, sex) {
         this.name = name
         this.age = age
         this.sex = sex
@@ -69,7 +72,7 @@ export default {
       }
     }
     Person.prototype.getLink = function () {
-      return "ccc"
+      return 'ccc'
     }
     class Son extends Person {
       constructor (x, y, z, job) {
@@ -97,12 +100,7 @@ export default {
 
   methods: {
     change () {
-      // this.mile[0] = { a: 2222 }
-      this.$nextTick(() => {
-        this.mile[0] = { a: 2222 }
-      })
-      // this.mile[0] = Object.assign({}, { a: 2222 })
-      // this.$set(this.mile, 0, { a: 2222 })
+      this.$set(this.mile, 0, { a: 2222 })
       console.log(this.mile)
     }
   }

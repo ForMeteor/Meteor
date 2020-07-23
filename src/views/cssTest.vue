@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-  <div>
+  <div class="normal_back">
     <div class="sqMain">
       <div class="sq1" v-for="r in dataList" :key="r"></div>
     </div>
@@ -13,6 +13,14 @@
     <div class="sqMain4"></div>
     <div class="sqMain5">
       <div class="sq5"></div>
+    </div>
+    <div class="sqMain6"></div>
+    <div class="sqMain7">
+      <div class="sq71"></div>
+      <div class="sq72"></div>
+    </div>
+    <div class="sqMain8">
+      <div class="sq8"></div>
     </div>
   </div>
 </template>
@@ -42,13 +50,16 @@ export default {
 
 </script>
 <style  scoped>
+.normal_back{
+  display: flex;
+  flex-wrap: wrap;
+}
 .sqMain{
   width: 200px;
   height: 200px;
   text-align: center;
   border:1px solid black;
   margin: 10px;
-  float: left;
   display: flex;
   flex-wrap: wrap;
   font-size: 10px;
@@ -90,7 +101,6 @@ export default {
 .sqMain2{
   width: 200px;
   height: 200px;
-  float: left;
   margin: 10px;
   border:1px solid red;
   position: relative;
@@ -105,7 +115,7 @@ export default {
   #F5CB6C 45%,#F5CB6C 70%,
   #F5856C 70%, #F5856C 95%,
   #F5CB6C 95%,#F5CB6C 100%);
-  /* animation: sq2A 2s infinite linear; */
+  animation: sq2A 2s infinite linear;
 }
 .sq2::before{
   position: absolute;
@@ -211,7 +221,6 @@ export default {
   width: 200px;
   height: 200px;
   box-sizing: border-box;
-  float: left;
   margin: 10px;
   border-width: 100px;
   border-style: solid;
@@ -221,7 +230,6 @@ export default {
 .sqMain5{
   width: 200px;
   height: 200px;
-  float: left;
   margin: 10px;
   justify-content: flex-start;
   align-items: flex-start;
@@ -237,5 +245,91 @@ export default {
 }
 /* 《トラ酱》，利用 Box-Shadow + CSS Animation 实现 GIF 的播放
 《冰崖上生长的仙人掌》，能不能让这些横着长的仙人掌生长的长度超过两格？ */
-
+/* 6 */
+.sqMain6{
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  border: 1px solid black;
+  /* animation: sq6A 2s infinite linear; */
+  background: linear-gradient(45deg,
+  orange 0%,orange 20%,
+  red 20%,red 30%,
+  orange 30%,orange 40%,
+  red 40%,red 50%,
+  orange 50%,orange 70%,
+  red 70%,red 80%,
+  orange 80%,orange 90%,
+  red 90%,red 100%);
+  background-position: 0 0;
+  animation: sq6A 6s infinite linear;
+}
+@keyframes sq6A{
+  0%{
+    background-position: 0 0;
+  }
+  100%{
+    background-position: 200px 0;
+  }
+}
+/* 7 */
+.sqMain7{
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  border: 1px solid black;
+  position: relative;
+}
+.sq71{
+  position: absolute;
+  left:0;right: 0;top: 0;bottom: 0;margin: auto;
+  border-radius: 50%;background: brown;
+  width: 100px;height: 100px;
+  animation: sq71A 4s linear infinite;
+}
+@keyframes sq71A{
+  0%{
+    width: 100px;height: 100px;
+  }
+  50%{
+    width: 150px;height: 150px;
+  }
+  100%{
+    width: 100px;height: 100px;
+  }
+}
+.sq72{
+  position: absolute;
+  left:0;right: 0;top: 0;bottom: 0;margin: auto;
+  border-radius: 50%;background: white;
+  width: 80px;height: 80px;
+  animation: sq72A 4s linear infinite;
+}
+@keyframes sq72A{
+  0%{
+    width: 80px;height: 80px;
+  }
+  50%{
+    width: 130px;height: 130px;
+  }
+  100%{
+   width: 80px;height: 80px;
+  }
+}
+/* 8 */
+.sqMain8{
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  border: 1px solid black;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 410; */
+  white-space: nowrap;
+}
+.sq8{
+  width: 40px;height: 20px;background: red;margin: 0 auto;
+}
 </style>
