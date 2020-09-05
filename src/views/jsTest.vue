@@ -4,6 +4,7 @@
       <div class="tty" v-bl></div>
       <div class="tty" v-te:ko.a.b="msg"></div>
       <div class="tty">{{msg|toUpper}}</div>
+      <div class="tty">{{gugu}}</div>
       <div class="ttt" @click="change">
         {{mile}}
       </div>
@@ -26,7 +27,11 @@ export default {
       }, {
         a: 21,
         b: 22
-      }]
+      }],
+      gugu: {
+        name: "2",
+        msg: "22"
+      }
     }
   },
   directives: {
@@ -100,6 +105,7 @@ export default {
 
   methods: {
     change () {
+      this.gugu.msg = "11"
       this.$set(this.mile, 0, { a: 2222 })
       console.log(this.mile)
     }

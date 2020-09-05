@@ -22,6 +22,9 @@
     <div class="sqMain8">
       <div class="sq8"></div>
     </div>
+    <div class="sqMain9"></div>
+    <div class="sqMain9"></div>
+    <div class="sqMain9"></div>
   </div>
 </template>
 
@@ -331,5 +334,12 @@ export default {
 }
 .sq8{
   width: 40px;height: 20px;background: red;margin: 0 auto;
+}
+/* 9 */
+.sqMain9{
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  border: 1px solid black;
 }
 </style>
