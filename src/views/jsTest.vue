@@ -50,6 +50,9 @@ export default {
 
   mounted () {
     console.log(BG)
+    console.log(this.$store)
+    this.$store.commit("changeName")
+    console.log(this.$store)
     const yu = 1111
     const ty = {
       a: 1,

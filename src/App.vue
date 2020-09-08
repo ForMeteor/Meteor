@@ -38,10 +38,10 @@ export default {
   },
   computed: {
     catShow () {
-      return this.$store.state.catShow
+      return this.$store.getters.catShow
     },
     backShow () {
-      return this.$store.state.backShow
+      return this.$store.getters.backShow
     }
   }
 }
