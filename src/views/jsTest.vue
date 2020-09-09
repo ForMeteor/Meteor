@@ -13,6 +13,7 @@
 
 <script>
 import { BG } from '@/common/constant'
+import { adminTable, adminQuery } from '@/api/admin'
 export default {
   name: 'jsTest',
   components: {
@@ -50,7 +51,16 @@ export default {
 
   mounted () {
     console.log(BG)
+    console.log(process.env)
     console.log(this.$store)
+    adminTable().then((res) => {
+      console.log(res)
+    }).catch()
+    adminQuery({
+      username:'meteor'
+    }).then((res) => {
+      console.log(res)
+    }).catch()
     this.$store.commit("changeName")
     console.log(this.$store)
     const yu = 1111
