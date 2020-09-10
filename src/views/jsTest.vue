@@ -50,17 +50,18 @@ export default {
   computed: {},
 
   mounted () {
+    // console.log(0.1+0.2!==0.3)
     console.log(BG)
     console.log(process.env)
     console.log(this.$store)
     adminTable().then((res) => {
       console.log(res)
     }).catch()
-    adminQuery({
-      username:'meteor'
-    }).then((res) => {
-      console.log(res)
-    }).catch()
+    // adminQuery({
+    //   username:'meteor'
+    // }).then((res) => {
+    //   console.log(res)
+    // }).catch()
     this.$store.commit("changeName")
     console.log(this.$store)
     const yu = 1111
