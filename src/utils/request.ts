@@ -9,16 +9,16 @@ const service = axios.create({
   // 超时
   timeout: 30000
 });
-const err = (error:any) => {
-    if (error.response.status === 406 ) {
-      console.warn(406)
-    } else if (error.response.status === 401){
-      console.warn(401)
-    }else {
-      console.warn("else")
-    }
-    return Promise.reject(error.response)
-  }
+// const err = (error:any) => {
+//     if (error.response.status === 406 ) {
+//       console.warn(406)
+//     } else if (error.response.status === 401){
+//       console.warn(401)
+//     }else {
+//       console.warn("else")
+//     }
+//     return Promise.reject(error.response)
+//   }
 // request拦截器
 service.interceptors.request.use(
     config => {
@@ -48,7 +48,7 @@ service.interceptors.request.use(
       // console.log( 'config', config)
       return config;
     },
-    err
+    // err
   );
   
   // 响应拦截器
@@ -64,7 +64,7 @@ service.interceptors.request.use(
       // }
       return res.data;
     }, 
-    err
+    // err
   );
   
   
