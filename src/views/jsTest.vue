@@ -53,6 +53,7 @@ export default {
     // console.log(0.1+0.2!==0.3)
     console.log(BG)
     console.log(process.env)
+    console.log(process.env.VUE_APP_REQ_API)
     console.log(this.$store)
     adminTable().then((res) => {
       console.log(res)

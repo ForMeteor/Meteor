@@ -1,0 +1,41 @@
+{
+    "data":[
+        {
+            "name": "/menu",
+            "path": "/menu",
+            "component": "Layout",
+            "meta": {"title": "系统管理", "icon": "menu"},
+            "children": [
+                {
+                    "name": "/menuDetail",
+                    "path": "/menuDetail",
+                    "component": "Layout",
+                    "meta": {"title": "系统管理详情", "icon": "menu"},
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "/cards",
+            "path": "/cards",
+            "component": "Layout",
+            "meta": {"title": "卡池管理", "icon": "cards"},
+            "children": [
+                {
+                    "name": "/cardsDetail",
+                    "path": "/cardsDetail",
+                    "component": "Layout",
+                    "meta": {"title": "卡池管理详情", "icon": "cards"},
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "/log",
+            "path": "/log",
+            "component": "Layout",
+            "meta": {"title": "日志管理", "icon": "log"},
+            "children": []
+        }
+    ]
+}
