@@ -1,14 +1,15 @@
 <template>
-  <div class="normal_back">
+  <div>
     <!-- 球状菜单 -->
-    <Menu :mack='msg'></Menu>
-    <div class="box animated bounceInDown"></div>
+    home
+    <!-- <Menu :mack='msg'></Menu> -->
+    <!-- <div class="box animated bounceInDown"></div> -->
   </div>
 </template>
 
 <script>
 import Menu from '@/components/circleMenu'
-import { adminTable, adminQuery } from '@/api/admin'
+// import { adminTable, adminQuery } from '@/api/admin'
 // @ is an alias to /src
 export default {
   name: 'Home',
@@ -22,9 +23,9 @@ export default {
   },
   mounted () {
     // +背景动画
-    adminTable().then((res) => {
-      console.log(res)
-    }).catch()
+    // adminTable().then((res) => {
+    //   console.log(res)
+    // }).catch()
   },
   methods: {
     menu () {

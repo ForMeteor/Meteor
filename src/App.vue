@@ -1,32 +1,34 @@
 <template>
   <div id="app" @contextmenu.prevent="">
-    <ctrl></ctrl>
-    <topNav v-if="false"></topNav>
-    <Back v-if="backShow"></Back>
-    <robot v-if="catShow"></robot>
+    <ctrl v-if="!appType"></ctrl>
+    <!-- <Back v-if="backShow"></Back> -->
+    <robot></robot>
+    <mainApp v-if="appType"></mainApp>
     <router-view/>
   </div>
 </template>
 
 <script>
+import { mapMutations, mapGetters } from 'vuex'
 // import Back from '@/components/canvas/ballBack'
 // import Back from '@/components/canvas/rain'
 import Back from '@/components/canvas/hackRain'
 // import Back from '@/components/canvas/triangle'
 import robot from '@/components/robotMenu'
-import topNav from '@/components/topNav.vue'
 import ctrl from '@/components/animateCtrl.vue'
+import mainApp from '@/layout/mainApp.vue'
 export default {
   name: 'app',
   components: {
-    topNav,
     robot,
     Back,
-    ctrl
+    ctrl,
+    mainApp
   },
   mounted () {
-    let t = document.title
-    let title = { focus: t, exit: '咕噜咕噜' }
+    // document.documentElement.clientHeight 监听高度
+    const t = document.title
+    const title = { focus: t, exit: '咕噜咕噜' }
     window.onblur = () => {
       document.title = title.exit
     }
@@ -37,12 +39,10 @@ export default {
   methods: {
   },
   computed: {
-    catShow () {
-      return this.$store.getters.catShow
-    },
-    backShow () {
-      return this.$store.getters.backShow
-    }
+    ...mapGetters([
+      'appType',
+      'appName'
+    ])
   }
 }
 </script>

@@ -2,19 +2,24 @@
 // import Cookies from 'js-cookie'
 
 const state = {
+  appType: true,
+  sideNav: true,
   appName: 'destiny'
 }
 
 const mutations = {
   changeName: (state:any) => {
     state.appName = "destiny2"
+  },
+  changeApptype: (state:any) => {
+    state.appType = !state.appType
+  },
+  changeSideNav: (state:any) => {
+    state.sideNav = !state.sideNav
   }
 }
 
 const actions = {
-  // toggleSideBar({ commit }) {
-  //   commit('changeName')
-  // },
   // closeSideBar({ commit }, { withoutAnimation }) {
   //   commit('CLOSE_SIDEBAR', withoutAnimation)
   // },

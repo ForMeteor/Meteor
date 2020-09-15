@@ -63,6 +63,14 @@ module.exports = {
         ws: false,
         changeOrigin: true
       }
+      // '/api': {
+      //   target: 'http://XX.XX.XX.XX:8083',
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     '^/api': '/api'   // 这种接口配置出来     http://XX.XX.XX.XX:8083/api/login
+      //     //'^/api': '/' 这种接口配置出来     http://XX.XX.XX.XX:8083/login
+      //   }
+      // }
     },
     disableHostCheck: true
   }

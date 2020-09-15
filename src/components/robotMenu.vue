@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
   name: 'robotMenu',
   data () {
@@ -21,11 +22,15 @@ export default {
   mounted () {},
 
   methods: {
+    ...mapMutations([
+      'changeApptype'
+    ]),
     right () {
       console.log('右键')
     },
     menuClick () {
       console.log('menuclick')
+      this.changeApptype()
     },
     fast () {
       this.pdr = false

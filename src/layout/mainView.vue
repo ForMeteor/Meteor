@@ -1,7 +1,7 @@
 <!--  -->
 <template>
-  <div>
-      <el-button @click="go">el-button</el-button>
+  <div class="main_view">
+    <router-view/>
   </div>
 </template>
 
@@ -17,17 +17,16 @@ export default {
 
   computed: {},
 
-  mounted () {
-    console.log('1')
-  },
+  mounted () {},
 
-  methods: {
-    go () {
-      this.$router.push('loading')
-    }
-  }
+  methods: {}
 }
 
 </script>
 <style  scoped>
+.main_view{
+    width: 100%;
+    min-height:100%;
+    background: grey;
+}
 </style>
