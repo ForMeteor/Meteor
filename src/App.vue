@@ -4,7 +4,7 @@
     <!-- <Back v-if="backShow"></Back> -->
     <robot></robot>
     <mainApp v-if="appType"></mainApp>
-    <router-view/>
+    <router-view name="tourist"></router-view>
   </div>
 </template>
 

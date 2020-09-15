@@ -1,14 +1,20 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/Home.vue'
+import login from '../views/login.vue'
 
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'origin',
+    component:login
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: login
   },
   {
     path: '/home',
@@ -64,7 +70,7 @@ const routes: Array<RouteConfig> = [
 
 const router = new VueRouter({
   mode: 'hash',
-  base: process.env.BASE_URL,
+  // base: process.env.BASE_URL,
   routes
 })
 router.beforeEach((to, from, next)=>{

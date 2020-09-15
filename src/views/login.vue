@@ -1,13 +1,13 @@
-<!--  -->
+<!-- 登录页面  -->
 <template>
-  <div class="main_view">
-    <router-view name="guest"></router-view>
+  <div>
+      <div>login</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: '',
+  name: 'login',
   data () {
     return {
     }
@@ -24,9 +24,4 @@ export default {
 
 </script>
 <style  scoped>
-.main_view{
-    width: 100%;
-    min-height:100%;
-    background: grey;
-}
 </style>

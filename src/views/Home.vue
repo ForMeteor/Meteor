@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 球状菜单 -->
-    home
+    home23423234
     <!-- <Menu :mack='msg'></Menu> -->
     <!-- <div class="box animated bounceInDown"></div> -->
   </div>
