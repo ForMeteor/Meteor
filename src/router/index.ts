@@ -9,8 +9,13 @@ const routes: Array<RouteConfig> = [
   {
     path: '/',
     name: 'origin',
-    component:login
+    component:Home
   },
+  // {
+  //   path: '/',
+  //   name: 'origin',
+  //   component:login
+  // },
   {
     path: '/login',
     name: 'login',
