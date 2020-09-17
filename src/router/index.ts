@@ -37,6 +37,11 @@ const routes: Array<RouteConfig> = [
     component: () => import('../views/404.vue')
   },
   {
+    path: '/pro',
+    name: 'pro',
+    component: () => import('../views/pro.vue')
+  },
+  {
     path: '/webTest',
     name: 'webTest',
     component: () => import('../views/webTest.vue')
