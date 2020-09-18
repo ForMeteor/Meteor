@@ -1,8 +1,8 @@
 <!--  -->
 <template>
   <div>
-    <el-button type="primary" @click="open">新增</el-button>
-    <auction v-if="diaShow"></auction>
+    <el-button type="primary" @click="open" size="mini">新增</el-button>
+    <auction v-if="diaShow" @step="action"></auction>
   </div>
 </template>
 
@@ -27,6 +27,9 @@ export default {
   methods: {
     open () {
       this.diaShow = !this.diaShow
+    },
+    action (v) {
+      this.diaShow = false
     }
   }
 }
