@@ -100,17 +100,35 @@
                 <div class="auc_form" v-show="stepRate==2">
                     <el-row>
                         <el-col :span="5"><span class="must">竞价开始时间:</span></el-col>
-                        <el-col :span="6"><el-input v-model="dataList.f" placeholder="请输入内容"></el-input></el-col>
+                        <el-col :span="6">
+                            <el-date-picker
+                            v-model="dataList.beginA"
+                            type="date"
+                            style="width:100%"
+                            placeholder="选择日期">
+                            </el-date-picker>
+                        </el-col>
                         <el-col :span="1">&nbsp;</el-col>
                         <el-col :span="5"><span class="must">竞价结束时间:</span> </el-col>
-                        <el-col :span="6"><el-input v-model="dataList.g" placeholder="请输入内容"></el-input></el-col>
+                        <el-col :span="6">
+                            <el-date-picker
+                            v-model="dataList.endA"
+                            type="date"
+                            style="width:100%"
+                            placeholder="选择日期">
+                            </el-date-picker>
+                        </el-col>
                     </el-row>
                     <el-row>
                         <el-col :span="5"><span class="must">起拍价:</span></el-col>
                         <el-col :span="6"><el-input v-model="dataList.f" placeholder="请输入内容"></el-input></el-col>
                         <el-col :span="1">&nbsp;</el-col>
                         <el-col :span="5"><span class="must">起拍价公布时间:</span> </el-col>
-                        <el-col :span="6"><el-input v-model="dataList.g" placeholder="请输入内容"></el-input></el-col>
+                        <el-col :span="6">
+                            <span class="div_holder">开拍前</span>
+                            <el-input v-model="dataList.pubTime" style="margin-left:5px;padding:0;width:30px;outline:none;"></el-input>
+                            <span style="margin-left:5px;display:inline-block">分钟</span>
+                        </el-col>
                     </el-row>
                     <el-row>
                         <el-col :span="5"><span class="must">加价幅度:</span></el-col>
@@ -126,23 +144,50 @@
                         <el-col :span="5"><span class="must">标重:</span> </el-col>
                         <el-col :span="6"><el-input v-model="dataList.g" placeholder="请输入内容"></el-input></el-col>
                     </el-row>
+                    <!-- select + input以上 -->
                     <el-row>
                         <el-col :span="5"><span class="must">保证金:</span></el-col>
                         <el-col :span="6"><el-input v-model="dataList.f" placeholder="请输入内容"></el-input></el-col>
                     </el-row>
                     <el-row>
                         <el-col :span="5"><span class="must">交割开始时间:</span></el-col>
-                        <el-col :span="6"><el-input v-model="dataList.f" placeholder="请输入内容"></el-input></el-col>
+                        <el-col :span="6">
+                            <el-date-picker
+                            v-model="dataList.beginB"
+                            type="date"
+                            style="width:100%"
+                            placeholder="选择日期">
+                            </el-date-picker>
+                        </el-col>
                         <el-col :span="1">&nbsp;</el-col>
                         <el-col :span="5"><span class="must">交割结束时间:</span> </el-col>
-                        <el-col :span="6"><el-input v-model="dataList.g" placeholder="请输入内容"></el-input></el-col>
+                        <el-col :span="6">
+                            <el-date-picker
+                            v-model="dataList.endB"
+                            type="date"
+                            style="width:100%"
+                            placeholder="选择日期">
+                            </el-date-picker>
+                        </el-col>
                     </el-row>
                     <el-row>
                         <el-col :span="6"><span class="must">竞价中公开竞价排名:</span></el-col>
-                        <el-col :span="5"><el-input v-model="dataList.f" placeholder="请输入内容"></el-input></el-col>
+                        <el-col :span="5">
+                            <el-switch
+                            v-model="dataList.ifInPublic"
+                            active-color="#13ce66"
+                            inactive-color="#9B9B9B">
+                            </el-switch>
+                        </el-col>
                         <el-col :span="1">&nbsp;</el-col>
                         <el-col :span="6"><span class="must">竞价后公布中标信息:</span> </el-col>
-                        <el-col :span="5"><el-input v-model="dataList.g" placeholder="请输入内容"></el-input></el-col>
+                        <el-col :span="5">
+                            <el-switch
+                            v-model="dataList.ifPublicInfo"
+                            active-color="#13ce66"
+                            inactive-color="#9B9B9B">
+                            </el-switch>
+                        </el-col>
                     </el-row>
                     <!-- 是否公开竞价影响展示 -->
                     <el-row>
@@ -151,7 +196,7 @@
                             <el-switch
                             v-model="dataList.ifPublic"
                             active-color="#13ce66"
-                            inactive-color="#ff4949">
+                            inactive-color="#9B9B9B">
                             </el-switch>
                         </el-col>
                     </el-row>
@@ -161,7 +206,7 @@
                             <el-switch
                             v-model="dataList.ifSign"
                             active-color="#13ce66"
-                            inactive-color="#ff4949">
+                            inactive-color="#9B9B9B">
                             </el-switch>
                         </el-col>
                         <el-col :span="1">&nbsp;</el-col>
@@ -170,13 +215,56 @@
                     </el-row>
                     <el-row v-if="!dataList.ifPublic">
                         <el-col :span="5"><span class="must">参拍客户范围:</span></el-col>
-                        <el-col :span="6"><el-input v-model="dataList.f" placeholder="请输入内容"></el-input></el-col>
+                        <el-col :span="6">
+                            <el-select v-model="dataList.clientRange" @change="range">
+                             <el-option
+                                v-for="state in clientRangeOption"
+                                :key="state.value"
+                                :value="state.value"
+                                :label="state.label"
+                            ></el-option>
+                            </el-select>
+                        </el-col>
                         <el-col :span="1">&nbsp;</el-col>
-                        <el-col :span="6"><span class="must">选择客户所在地区:</span> </el-col>
-                        <el-col :span="5"><el-input v-model="dataList.g" placeholder="请输入内容"></el-input></el-col>
+                        <el-col :span="6" v-if="dataList.clientRange==1"><span class="must">选择客户所在地区:</span> </el-col>
+                        <el-col :span="5" v-if="dataList.clientRange==1"><el-input v-model="dataList.g" placeholder="请输入内容"></el-input></el-col>
+                        <el-col :span="6" v-if="dataList.clientRange==2"><span class="must">选择会员:</span> </el-col>
+                        <el-col :span="5" v-if="dataList.clientRange==2"><el-input v-model="dataList.g" placeholder="请输入内容"></el-input></el-col>
                     </el-row>
                 </div>
-                <div class="auc_form" v-show="stepRate==3">3</div>
+                <div class="auc_form" v-show="stepRate==3">
+                    <el-row>
+                        <el-col :span="4"><span class="must">商品名称:</span></el-col>
+                        <el-col :span="18">
+                            <el-input v-model="dataList.f" placeholder="请输入商品名称"></el-input>
+                        </el-col>
+                    </el-row>
+                    <!-- upload -->
+                    <el-row>
+                        <el-col :span="4"><span class="must">商品缩略图:</span></el-col>
+                        <el-col :span="18">
+                            <el-input v-model="dataList.f" placeholder="请输入商品名称"></el-input>
+                        </el-col>
+                    </el-row>
+                    <el-row>
+                        <el-col :span="4"><span class="must">商品相册:</span></el-col>
+                        <el-col :span="18">
+                            <el-input v-model="dataList.f" placeholder="请输入商品名称"></el-input>
+                        </el-col>
+                    </el-row>
+                    <el-row>
+                        <el-col :span="4">商品短视频:</el-col>
+                        <el-col :span="18">
+                            <el-input v-model="dataList.f" placeholder="请输入商品名称"></el-input>
+                        </el-col>
+                    </el-row>
+                    <el-row>
+                        <el-col :span="4">商品详情:</el-col>
+                        <el-col :span="18">
+                            <el-input v-model="dataList.f" placeholder="请输入商品名称"></el-input>
+                        </el-col>
+                    </el-row>
+                </div>
             </div>
         </div>
     </div>
@@ -190,6 +278,16 @@ export default {
     return {
       stepRate: 1,
       ifPublicOption: [],
+      clientRangeOption: [
+        {
+          label: '指定地区',
+          value: '1'
+        },
+        {
+          label: '指定会员',
+          value: '2'
+        }
+      ],
       dataList: {
         a: null,
         b: null,
@@ -197,22 +295,23 @@ export default {
         d: null,
         e: null,
         // -
-        aa1: null,
-        aa2: null,
+        beginA: null,
+        endA: null,
         aa3: null,
-        aa4: null,
+        pubTime: null,
         aa5: null,
         aa6: null,
         aa7: null,
         aa8: null,
         aa9: null,
         aa10: null,
-        aa11: null,
-        aa12: null,
-        aa13: null,
-        aa14: null,
+        beginB: null,
+        endB: null,
+        ifPublicInfo: true,
+        ifInPublic: true,
         ifSign: false,
         ifPublic: true,
+        clientRange: null,
         // -
         bb1: null,
         bb2: null,
@@ -265,10 +364,13 @@ export default {
       this.dataList.b = this.dataList.a + this.dataList.a
     },
     wlTpye () {
-    //   this.dataList.b = this.dataList.a + this.dataList.a
     },
     wlName () {
       this.dataList.e = this.dataList.d + this.dataList.d
+    },
+    range (v) {
+      console.log(v)
+      console.log(this.dataList.clientRange)
     },
     // -
 
