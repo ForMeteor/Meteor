@@ -11,6 +11,7 @@ export default {
   name: '',
   data () {
     return {
+      plane: null // 平面
     }
   },
 
@@ -87,13 +88,28 @@ export default {
       const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
       // 相机 渲染器
       const renderer = new THREE.WebGLRenderer()
+      renderer.setClearColor(new THREE.Color(0x000000))
       renderer.setSize(window.innerWidth, window.innerHeight)
+      renderer.shadowMap.enabled = true
       document.getElementById('ani_1').appendChild(renderer.domElement)
       const geometry = new THREE.BoxGeometry(1, 1, 1) // 立方体
-      const material = new THREE.MeshBasicMaterial({ color: 0x0000FF }) // 材质
+      const material = new THREE.MeshBasicMaterial({ color: 0xFF8C00 }) // 材质
       const cube = new THREE.Mesh(geometry, material)
       scene.add(cube)
       camera.position.z = 5
+      // ------
+      const planeGeometry = new THREE.PlaneGeometry(60, 20)
+      const planeMaterial = new THREE.MeshLambertMaterial({ color: 0xffffff })
+      this.plane = new THREE.Mesh(planeGeometry, planeMaterial)
+      this.plane.rotation.x = -0.5 * Math.PI
+      this.plane.position.set(15, 0, 0)
+      this.plane.receiveShadow = true
+      scene.add(this.plane)
+      const spotLight = new THREE.SpotLight(0xffffff)
+      spotLight.position.set(30, 25, -2)
+      spotLight.castShadow = true
+      spotLight.target = this.plane
+      scene.add(spotLight)
       const animate = function () {
         requestAnimationFrame(animate)
         cube.rotation.x += 0.01
