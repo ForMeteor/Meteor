@@ -37,11 +37,6 @@ const routes: Array<RouteConfig> = [
     component: () => import('../views/404.vue')
   },
   {
-    path: '/pro',
-    name: 'pro',
-    component: () => import('../views/pro.vue')
-  },
-  {
     path: '/webTest',
     name: 'webTest',
     component: () => import('../views/webTest.vue')
@@ -70,6 +65,11 @@ const routes: Array<RouteConfig> = [
     path: '/ani_3',
     name: 'ani_3',
     component: () => import('../views/ani/ani_3.vue')
+  },
+  {
+    path: '/ani_4',
+    name: 'ani_4',
+    component: () => import('../views/ani/ani_4.vue')
   },
   {
     path: '/loadingList',

@@ -2,7 +2,7 @@
 // import Cookies from 'js-cookie'
 
 const state = {
-  appType: true,
+  appType: false,
   sideNav: true,
   appName: 'destiny'
 }

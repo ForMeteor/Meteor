@@ -33,6 +33,10 @@ export default {
           path: 'ani_3'
         },
         {
+          name: 'ani_4',
+          path: 'ani_4'
+        },
+        {
           name: 'loadList',
           path: 'loadingList'
         },
