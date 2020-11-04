@@ -29,8 +29,8 @@ export default {
       console.log('右键')
     },
     menuClick () {
-      console.log('menuclick')
-      this.changeApptype()
+      // console.log('menuclick')
+      // this.changeApptype()
     },
     fast () {
       this.pdr = false

@@ -70,9 +70,9 @@ export default {
         this.balls[i].position.z = this.balls[i].r * Math.sin(d)
         this.balls[i].position.x = this.balls[i].r * Math.cos(d)
       }
-      if (this.ifMove) {
-        requestAnimationFrame(this.renderScene)
-      }
+      // if (this.ifMove) {
+      //   requestAnimationFrame(this.renderScene)
+      // }
       this.renderer.render(this.scene, this.camera)
     },
     createSun () {
@@ -131,19 +131,6 @@ export default {
       mouse.x = (event.clientX / this.renderer.domElement.clientWidth) * 2 - 1
       mouse.y = -(event.clientY / this.renderer.domElement.clientHeight) * 2 + 1
       raycaster.setFromCamera(mouse, this.camera)
-      // 必须装网格，mesh，装入组是没有效果的
-      // --线条显示
-      // let geometry = new THREE.Geometry()
-      // let lineMaterial = new THREE.LineBasicMaterial({
-      //   color: '#ff0000'
-      // })
-      // geometry.vertices.push(
-      //   new THREE.Vector3(mouse.x, mouse.y, 0),
-      //   new THREE.Vector3(this.camera.position.x, this.camera.position.y, this.camera.position.z)
-      // )
-      // let line = new THREE.Line(geometry, lineMaterial)
-      // this.scene.add(line)
-      // --
       let intersects = raycaster.intersectObjects(this.scene.children)
       if (intersects.length > 0) {
         console.log(intersects[0].object)

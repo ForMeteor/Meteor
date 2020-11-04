@@ -72,6 +72,11 @@ const routes: Array<RouteConfig> = [
     component: () => import('../views/ani/ani_4.vue')
   },
   {
+    path: '/ani_5',
+    name: 'ani_5',
+    component: () => import('../views/ani/ani_5.vue')
+  },
+  {
     path: '/loadingList',
     name: 'loadingList',
     component: () => import('../components/infLoadingList.vue')

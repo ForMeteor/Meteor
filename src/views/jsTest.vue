@@ -1,8 +1,13 @@
 <!--  -->
 <template>
   <div>
-      <div class="tty" v-bl></div>
+      <div class="tty" v-bl @click="ifShow = !ifShow"></div>
       <div class="tty" v-te:ko.a.b="msg"></div>
+      <div class="flexTest" v-show="ifShow">
+        <div class="flexTestItem"></div>
+        <div class="flexTestItem"></div>
+        <div class="flexTestItem"></div>
+      </div>
       <div class="tty">{{msg|toUpper}}</div>
       <div class="tty">{{gugu}}</div>
       <div class="ttt" @click="change">
@@ -20,6 +25,7 @@ export default {
   },
   data () {
     return {
+      ifShow: true,
       msg: 'ttt',
       mile: [{
         a: 1,
@@ -136,5 +142,13 @@ export default {
 .ttt{
   width: 200px;
   height: 100px;
+}
+.flexTest{
+  display: flex;
+  height:60px;
+}
+.flexTestItem{
+  flex: 1;
+  border:1px solid black;
 }
 </style>

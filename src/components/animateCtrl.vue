@@ -37,6 +37,10 @@ export default {
           path: 'ani_4'
         },
         {
+          name: 'ani_5',
+          path: 'ani_5'
+        },
+        {
           name: 'loadList',
           path: 'loadingList'
         },

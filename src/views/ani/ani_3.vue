@@ -8,7 +8,7 @@
 import spetMethod from 'sept_method'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-import dat from 'dat.gui'
+// import dat from 'dat.gui'
 export default {
   name: '',
   data () {
