@@ -2,7 +2,6 @@ import Cookies from 'js-cookie'
 
 const TokenKey = 'Admin-Token'
 const RrfreToken = 'Re-Admin-token'
-
 export function getToken() {
   return Cookies.get(TokenKey)
 }

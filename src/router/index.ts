@@ -88,8 +88,4 @@ const router = new VueRouter({
   // base: process.env.BASE_URL,
   routes
 })
-router.beforeEach((to, from, next)=>{
-  console.log('路由守卫')
-  next()
-})
 export default router

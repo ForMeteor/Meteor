@@ -2,6 +2,7 @@
 <template>
   <div>
       <div>login</div>
+      <el-button @click="back">返回</el-button>
   </div>
 </template>
 
@@ -10,6 +11,7 @@ export default {
   name: 'login',
   data () {
     return {
+      redirect: null
     }
   },
 
@@ -17,9 +19,17 @@ export default {
 
   computed: {},
 
-  mounted () {},
+  mounted () {
+    console.log(this.$route.query)
+  },
 
-  methods: {}
+  methods: {
+    back () {
+      this.$router.push({
+        path: this.redirect || '/'
+      })
+    }
+  }
 }
 
 </script>

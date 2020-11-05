@@ -13,3 +13,9 @@ export function adminQuery(data:object) {
       data:data
     })
 }
+export function getToken() {
+  return "123"
+}
+export function getReToken() {
+  return "1234"
+}
