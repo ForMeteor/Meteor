@@ -15,11 +15,10 @@ router.beforeEach((to, from, next) => {
   console.log("perimision")
   if (getToken()) {
     /* has token*/
-    // if (to.path === '/login') {
-    //   next({ path: '/' })
-    //   NProgress.done()
-    // } else {
-    //   // 测试 以前 是 === 0
+    if (to.path === '/login') {
+      next({ path: '/' })
+      NProgress.done()
+    } else {
     //   const uid = store.getters.userId
     //   if (uid === '' || uid === null || uid === 'undefined') {
     //     // 判断当前用户是否已拉取完user_info信息
@@ -50,7 +49,7 @@ router.beforeEach((to, from, next) => {
     //     // }
     //     // 可删 ↑
     //   }
-    // }
+    }
   } else {
     // 没有token
     if (whiteList.indexOf(to.path) !== -1) {

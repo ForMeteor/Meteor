@@ -1,8 +1,8 @@
 // 权限控制
 
 const state =  {
-    catShow: true,
-    backShow: false,
+    catShow: true, // 精灵显示控制
+    backShow: false, // 页面背景显示控制
 }
 
 const mutations = {
