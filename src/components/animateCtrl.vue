@@ -8,6 +8,7 @@
       <div class="ctrl_item" @click="robotMenu">cat</div>
       <div class="ctrl_item" @click="home">home</div>
       <div class="ctrl_item" v-for="r in aniData" :key="r.name" @click="ani(r.path)">{{r.name}}</div>
+      <div class="ctrl_item" @click="removeT">注销</div>
     </div>
   </div>
 </template>
@@ -93,6 +94,10 @@ export default {
     },
     ani (path) {
       this.$router.push(path)
+    },
+    removeT () {
+      this.$store.dispatch('logOut')
+      this.$router.push({ path: '/login'})
     }
   }
 }

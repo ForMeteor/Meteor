@@ -1,4 +1,5 @@
-import { adminTable, getToken, getReToken} from '@/api/admin'
+import { adminTable,getMenu } from '@/api/admin'
+import { getToken, setToken, removeToken, getReToken, setReToken, removeReToken } from '@/utils/auth'
 const user = {
   state: {
     token: getToken(),
@@ -36,6 +37,21 @@ const user = {
       state.passWord = passWord
     },
   },
-  actions:{}
+  actions:{
+    // 为什么不mutation
+    logIn({ commit }, userInfo:any){
+      // return 返回值
+      // getMenu().then((ews)=>{
+      //   console.log(ews)
+      // }).catch()
+      setToken(userInfo)
+      commit('SET_TOKEN',userInfo)
+    },
+    logOut({ commit }){
+      removeToken()
+      commit('SET_TOKEN','')
+    },
+
+  }
 }
 export default user

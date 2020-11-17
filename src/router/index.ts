@@ -5,17 +5,17 @@ import login from '../views/login.vue'
 
 Vue.use(VueRouter)
 
-const routes: Array<RouteConfig> = [
-  {
-    path: '/',
-    name: 'origin',
-    component:Home
-  },
+export const constantRoutes: Array<RouteConfig> = [
   // {
   //   path: '/',
   //   name: 'origin',
-  //   component:login
+  //   component:Home
   // },
+  {
+    path: '/',
+    name: 'login',
+    component:login
+  },
   {
     path: '/login',
     name: 'login',
@@ -86,6 +86,6 @@ const routes: Array<RouteConfig> = [
 const router = new VueRouter({
   mode: 'hash',
   // base: process.env.BASE_URL,
-  routes
+  routes:constantRoutes
 })
 export default router

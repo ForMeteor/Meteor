@@ -13,6 +13,12 @@ export function adminQuery(data:object) {
       data:data
     })
 }
+export function getMenu() {
+  // return request({
+  //   url: '@/assets/menu.json',
+  //   method: 'get'
+  // })
+}
 export function getToken() {
   return "123"
 }

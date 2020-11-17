@@ -5,10 +5,11 @@ import { Message } from 'element-ui'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { getToken } from '@/utils/auth'
+import axios from "axios"
 
 NProgress.configure({ showSpinner: false })
 
-const whiteList = ['/login', '/auth-redirect', '/bind', '/register']  // 不需token白名单
+const whiteList = ['/login', '/auth-redirect', '/bind', '/register','jsTest']  // 不需token白名单
 
 router.beforeEach((to, from, next) => {
   NProgress.start() // 浏览器进度条
@@ -49,9 +50,11 @@ router.beforeEach((to, from, next) => {
     //     // }
     //     // 可删 ↑
     //   }
+     next()
     }
   } else {
     // 没有token
+    console.log("no token")
     if (whiteList.indexOf(to.path) !== -1) {
       // 在免登录白名单，直接进入
       next()

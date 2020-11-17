@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie'
 
-const TokenKey = 'Admin-Token'
-const RrfreToken = 'Re-Admin-token'
+const TokenKey = 'Guardian-Token'
+const RrfreToken = 'Re-Guardian-token'
 export function getToken() {
   return Cookies.get(TokenKey)
 }
@@ -19,7 +19,7 @@ export function getReToken() {
   return Cookies.get(RrfreToken)
 }
 
-export function setReToken(token) {
+export function setReToken(token:any) {
   return Cookies.set(RrfreToken, token)
 }
 
