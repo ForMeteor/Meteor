@@ -9,17 +9,23 @@ import axios from "axios"
 
 NProgress.configure({ showSpinner: false })
 
-const whiteList = ['/login', '/auth-redirect', '/bind', '/register','jsTest']  // 不需token白名单
+const whiteList = ['/login', '/auth-redirect', '/bind', '/register','jsTest']  // 白名单
 
 router.beforeEach((to, from, next) => {
-  NProgress.start() // 浏览器进度条
+  NProgress.start() 
   console.log("perimision")
   if (getToken()) {
-    /* has token*/
+    console.log('has token')
     if (to.path === '/login') {
       next({ path: '/' })
       NProgress.done()
     } else {
+      store.dispatch('GenerateRoutes').then( accessedRoutes =>{
+        store.commit('SET_ROUTES', accessedRoutes)
+        router.addRoutes(store.state.permission.routes) // 动态添加可访问路由表
+        console.log(to)
+        next()
+      })
     //   const uid = store.getters.userId
     //   if (uid === '' || uid === null || uid === 'undefined') {
     //     // 判断当前用户是否已拉取完user_info信息
@@ -50,7 +56,6 @@ router.beforeEach((to, from, next) => {
     //     // }
     //     // 可删 ↑
     //   }
-     next()
     }
   } else {
     // 没有token

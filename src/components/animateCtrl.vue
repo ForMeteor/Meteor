@@ -94,6 +94,7 @@ export default {
     },
     ani (path) {
       this.$router.push(path)
+      // console.log(this.$store.state.permission.routes)
     },
     removeT () {
       this.$store.dispatch('logOut')

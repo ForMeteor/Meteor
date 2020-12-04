@@ -13,7 +13,7 @@ export const constantRoutes: Array<RouteConfig> = [
   // },
   {
     path: '/',
-    name: 'login',
+    name: 'index',
     component:login
   },
   {
@@ -85,6 +85,7 @@ export const constantRoutes: Array<RouteConfig> = [
 
 const router = new VueRouter({
   mode: 'hash',
+  // mode: 'history',
   // base: process.env.BASE_URL,
   routes:constantRoutes
 })

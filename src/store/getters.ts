@@ -13,6 +13,8 @@ const getters = {
     passWord: (state:any) => state.user.passWord,
     permissions: (state:any) => state.user.permissions,
     userId: (state:any) => state.user.userId,
+    // -- 路由
+    mockData:(state:any) => state.permission.mockData,
   }
   export default getters
   

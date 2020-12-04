@@ -1,19 +1,25 @@
 [
   {
-    "path":"",
-    "name":"页面一",
+    "path":"/treeList/spring",
+    "name":"spring",
     "icon":"",
     "children":[]
   },
   {
-    "path":"",
-    "name":"页面二",
+    "path":"/treeList/summer",
+    "name":"summer",
     "icon":"",
     "children":[]
   },
   {
-    "path":"",
-    "name":"页面三",
+    "path":"/treeList/fall",
+    "name":"fall",
+    "icon":"",
+    "children":[]
+  },
+  {
+    "path":"/treeList/winter",
+    "name":"winter",
     "icon":"",
     "children":[]
   }

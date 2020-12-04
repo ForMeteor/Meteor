@@ -1,9 +1,12 @@
 // 权限控制
 import { constantRoutes } from '@/router'
+import MenuList from '@/assets/menu.json'
+import router from '@/router'
 const permission = {
     state : {
         routes: [],
         addRoutes: [],
+        mockData: MenuList,
         buttons: [],
         catShow: true, // 精灵显示控制
         backShow: false, // 页面背景显示控制
@@ -26,25 +29,29 @@ const permission = {
     },
 
     actions: {
-        GenerateRoutes({ commit }) {
-            console.log('GenerateRoutes')
+        GenerateRoutes({ commit, state}) {
             return new Promise(resolve => {
-            //   向后端请求路由数据
-            //   getRouters().then(res => {
-            //     const accessedRoutes = filterAsyncRouter(res.data.menu)
-            //     accessedRoutes.push({ path: '*', redirect: '/404', hidden: true })
-            //     commit('SET_ROUTES', accessedRoutes)
-            //     commit('SET_BUTTONS', res.data.buttons)
-            //     resolve(accessedRoutes)
-            //   })
+                console.log('GenerateRoutes')
+                const accessedRoutes = filterAsyncRouter(state.mockData)
+                resolve(accessedRoutes)
             })
         }
     }
 }
-function filterAsyncRouter(menu:any){}
+function filterAsyncRouter(menu:any){
+    return menu.filter((route:any) => {
+        route.component = loadView(route.path)
+        if (route.children != null && route.children && route.children.length) {
+          route.children = filterAsyncRouter(route.children)
+        }
+        return true
+    })
+}
 
 export const loadView = (view:any) => { // 路由懒加载
-    return (resolve:any) =>  require([`@/views/${view}`], resolve)
+    console.log(view)
+    return  () => import(`@/views${view}`)
+    return (resolve:any) =>  require([`@/views${view}`], resolve)
   }
   
 export default permission
