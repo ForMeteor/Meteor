@@ -7,8 +7,6 @@
       <el-button @click="getT">登录</el-button>
       <el-button @click="removeT">注销</el-button>
       <el-button @click="rout">路由</el-button>
-      <div>{{objTest.a}}</div>
-      <div>{{objTest.b}}</div>
       <div v-for="r in menuList" :key="r.name" @click="moveTo(r)">{{r.name}}</div>
   </div>
 </template>
@@ -19,63 +17,31 @@ export default {
   data () {
     return {
       redirect: null,
-      objTest: {
-        a: 2
-      }
     }
   },
 
-  components: {},
+  components: {
+  },
 
   computed: {
     menuList () {
+      // v-distpicker
       return this.$store.state.permission.mockData
     }
   },
   watch: {
-    $route: {
-      handler: function (route) {
-        console.log(route)
-        console.log(this.$route)
-        this.redirect = route.query && route.query.redirect
-      },
-      immediate: true
-    },
-    // objTest (n, old) {
-    //   console.log(n)
-    //   console.log(old)
-    // },
-    objTest: {
-      handler: function (n, old) {
-        console.log(n)
-        console.log(old)
-      },
-      immediate: true,
-      deep: true
-    }
+    // $route: {
+    //   handler: function (route) {
+    //     console.log(route)
+    //     console.log(this.$route)
+    //     this.redirect = route.query && route.query.redirect
+    //   },
+    //   immediate: true
+    // }
   },
   create () {
   },
   mounted () {
-    var a = {
-      i: 1,
-      toString () {
-        return a.i++
-      }
-    }
-    if (a == 1 && a == 2 && a == 3) {
-      console.log(111111111)
-    }
-    var obj = {
-        '2': 3,
-        '3': 4,
-        'length': 2,
-        'splice': Array.prototype.splice,
-        'push': Array.prototype.push
-    }
-    obj.push(1)
-    obj.push(2)
-    console.log(obj)
     // this.redirect = route.query && route.query.redirect
     // this.$router.push({ path: this.redirect || "/" })
     // this.p1().then((data) => {
@@ -93,8 +59,8 @@ export default {
     moveTo (r) {
       console.log(r.path)
       this.$router.push({
-        // path: r.path
-        name: r.name
+        path: r.path
+        // name: r.name
       })
     },
     rout () {
@@ -142,8 +108,12 @@ export default {
       this.objTest.b = this.objTest.a === 888 ? 222 : 888
     },
     getT () {
-      this.$store.dispatch('logIn', 'infoData11')
-      console.log(this.$store.getters.token)
+      // this.$store.dispatch('logIn', 'infoData11')
+      // console.log(this.$store.getters.token)
+      //  next(`/login?redirect=${to.path}`)
+      // this.redirect = this.route.query && this.route.query.redirect
+      console.log(this.$route.query.redirect)
+      this.$router.push({ path: this.$route.query.redirect || '/' })
     },
     removeT () {
       this.$store.dispatch('logOut')

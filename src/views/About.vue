@@ -5,14 +5,10 @@
       <div class="sx1"></div>
       <div class="sx2"></div>
     </div>
-    <!-- <div onclick="var a=1;console.log(a);console.log(this)">111</div>
-    <div @click="foo(this)">222</div> -->
-    <Area @fall="getValue"/>
   </div>
 </template>
 
 <script>
-import Area from '@/components/area'
 export default {
   name: 'About',
   data () {
@@ -22,7 +18,6 @@ export default {
   },
 
   components: {
-    Area
   },
 
   computed: {},
@@ -39,9 +34,6 @@ export default {
       console.log(t)
       console.log(this)
     },
-    getValue (v) {
-      console.log(v)
-    }
   }
 }
 

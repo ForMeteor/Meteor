@@ -15,7 +15,9 @@ export default {
 
   computed: {},
 
-  mounted () {},
+  mounted () {
+    console.log(this.$router)
+  },
 
   methods: {}
 }
