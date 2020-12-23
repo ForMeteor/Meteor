@@ -53,6 +53,8 @@ export const loadView = (view:any) => { // 路由懒加载
     return  () => import(`@/views${view}`)
     return (resolve:any) =>  require([`@/views${view}`], resolve)
   }
-  
+// function _import (file) {
+//   return () => import('@/views/' + file + '.vue')
+// }
 export default permission
   
