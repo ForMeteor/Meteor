@@ -1,6 +1,7 @@
 <!-- 图片上传相关 -->
 <template>
   <div>
+    <button @click="getTxt">下载</button>
     <input type="file" ref="uploadori" multiple  @change="addThings($event)">
     <el-upload
       class="avatar-uploader"
@@ -15,6 +16,8 @@
 </template>
 
 <script>
+import { getFile, uploadFile } from '@/api/file'
+import { adminTable } from '@/api/admin'
 export default {
   name: '',
   data () {
@@ -27,13 +30,32 @@ export default {
 
   computed: {},
 
-  mounted () {},
+  mounted () {
+    // http://47.97.73.43:3006/sql/admintable
+    // http://47.97.73.43:3006/file/fileTest
+  },
 
   methods: {
+    getTxt(){
+      getFile().then(()=>{
+        console.log("done")
+      }).catch()
+      adminTable().then(()=>{
+        console.log("done")
+      }).catch()
+    },
     addThings (e) {
       console.log(e)
       const thing = this.$refs.uploadori
       console.log(thing.files)
+      let formData = new FormData();
+      formData.append('file', thing.files[0]);
+      console.log(formData)
+      uploadFile(formData).then(()=>{
+        console.log('done')
+      }).catch()
+      //post
+
       // console.log(thing.files[0].naturalHeight)
       // console.log(thing.files[0].naturalWidth)
       // const reader = new FileReader()

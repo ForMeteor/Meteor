@@ -13,6 +13,14 @@ const api = {
       url: "/sql/queryPassword", // post 查询对应密码
       name: "查询密码"
     },
+    FILE01: {
+      url: "/file/fileDown", // get 下载文件
+      name: "下载文件"
+    },
+    FILE02: {
+      url: "/file/upload", // post 上传文件
+      name: "上传文件"
+    },
   };
   export default api;
   
