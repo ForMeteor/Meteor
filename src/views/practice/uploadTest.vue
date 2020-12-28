@@ -1,7 +1,7 @@
 <!-- 图片上传相关 -->
 <template>
   <div>
-    <input type="file" ref="uploadori"  @change="addThings($event)">
+    <input type="file" ref="uploadori" multiple  @change="addThings($event)">
     <el-upload
       class="avatar-uploader"
       action="http://47.97.73.43:3006/"
@@ -33,16 +33,16 @@ export default {
     addThings (e) {
       console.log(e)
       const thing = this.$refs.uploadori
-      console.log(thing.files[0])
+      console.log(thing.files)
       // console.log(thing.files[0].naturalHeight)
       // console.log(thing.files[0].naturalWidth)
-      const reader = new FileReader()
-      reader.readAsDataURL(thing)
-      reader.onload = function () {
-        let img = new Image()
-        img.src = reader.result
-        console.warn(img)
-      }
+      // const reader = new FileReader()
+      // reader.readAsDataURL(thing)
+      // reader.onload = function () {
+      //   let img = new Image()
+      //   img.src = reader.result
+      //   console.warn(img)
+      // }
     },
     handleAvatarSuccess (res, file) {
       this.imageUrl = URL.createObjectURL(file.raw)
