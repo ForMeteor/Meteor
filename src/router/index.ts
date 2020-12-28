@@ -80,7 +80,12 @@ export const constantRoutes: Array<RouteConfig> = [
     path: '/loadingList',
     name: 'loadingList',
     component: () => import('../components/infLoadingList.vue')
-  }
+  },
+  {
+    path: '/uploadTest',
+    name: 'uploadTest',
+    component: () => import('../views/practice/uploadTest.vue')
+  },
 ]
 
 const router = new VueRouter({
@@ -89,26 +94,26 @@ const router = new VueRouter({
   // base: process.env.BASE_URL,
   routes:constantRoutes
 })
-router.addRoutes([
-  // {
-  //   path: '/treeList/spring',
-  //   name: 'spring',
-  //   component: () => import('../views/treeList/spring')
-  // },
-  {
-    path: '/treeList/summer',
-    name: 'summer',
-    component: () => import('../views/treeList/summer/summer.vue')
-  },
-  {
-    path: '/treeList/fall',
-    name: 'fall',
-    component: () => import('../views/treeList/fall/fall.vue')
-  },
-  {
-    path: '/treeList/winter',
-    name: 'winter',
-    component: () => import('../views/treeList/winter/winter.vue')
-  }]
-)
+// router.addRoutes([
+//   {
+//     path: '/treeList/spring',
+//     name: 'spring',
+//     component: () => import('../views/treeList/spring')
+//   },
+//   {
+//     path: '/treeList/summer',
+//     name: 'summer',
+//     component: () => import('../views/treeList/summer/summer.vue')
+//   },
+//   {
+//     path: '/treeList/fall',
+//     name: 'fall',
+//     component: () => import('../views/treeList/fall/fall.vue')
+//   },
+//   {
+//     path: '/treeList/winter',
+//     name: 'winter',
+//     component: () => import('../views/treeList/winter/winter.vue')
+//   }]
+// )
 export default router

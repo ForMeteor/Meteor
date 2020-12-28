@@ -1,4 +1,4 @@
-<!--  -->
+<!-- 导航菜单 -->
 <template>
   <div>
     <div class="ctrl_box" @click="wrapCtrl" v-show="wrapShow">0.0</div>
@@ -56,6 +56,10 @@ export default {
         {
           name: 'cssTest',
           path: 'cssTest'
+        },
+        {
+          name: 'uploadTest',
+          path: 'uploadTest'
         }
       ]
     }
@@ -65,7 +69,9 @@ export default {
 
   computed: {},
 
-  mounted () {},
+  mounted () {
+    console.warn(window.screen.width)
+  },
   watch: {
     wrapShow (val) {
       if (val) {
