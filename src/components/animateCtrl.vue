@@ -1,6 +1,12 @@
 <!-- 导航菜单 -->
 <template>
   <div>
+    <div class="mainBox" @click="changeOri">
+      <div class="main" :class="{'spreadBegin':spreadIf == 1,'spreadEnd':spreadIf == 2}" :style="'width:'+mainWidth+'%'">
+        <div class="menuBack"></div>
+        <div class="mainTail"></div>
+      </div>
+    </div>
     <div class="ctrl_box" @click="wrapCtrl" v-show="wrapShow">0.0</div>
     <div class="ctrl_box" @click="wrapCtrl" v-show="!wrapShow">^_^</div>
     <div class="ctrl_wrap" v-show="wrapShow">
@@ -8,7 +14,6 @@
       <div class="ctrl_item" @click="robotMenu">cat</div>
       <div class="ctrl_item" @click="home">home</div>
       <div class="ctrl_item" v-for="r in aniData" :key="r.name" @click="ani(r.path)">{{r.name}}</div>
-      <div class="ctrl_item" @click="removeT">注销</div>
     </div>
   </div>
 </template>
@@ -18,6 +23,9 @@ export default {
   name: 'animateCtrl',
   data () {
     return {
+      spreadIf: 0,
+      originDirect: false,
+      mainWidth: 0,
       wrapShow: false,
       timer: null,
       aniData: [
@@ -102,15 +110,91 @@ export default {
       this.$router.push(path)
       // console.log(this.$store.state.permission.routes)
     },
-    removeT () {
-      this.$store.dispatch('logOut')
-      this.$router.push({ path: '/login'})
+    changeOri () {
+      this.originDirect = !this.originDirect
+      this.widthChange()
+    },
+    widthChange () {
+      if (this.originDirect) {
+        // +
+        if (this.mainWidth < 100) {
+          this.mainWidth += 2
+          requestAnimationFrame(this.widthChange)
+        }
+      } else {
+        // -
+        if (this.mainWidth > 0) {
+          this.mainWidth -= 2
+          requestAnimationFrame(this.widthChange)
+        }
+      }
     }
   }
 }
 
 </script>
 <style  scoped>
+.mainBox{
+  height: 60px;
+  position: fixed;
+  top: 5px;
+  left:0;
+  right: 0;
+}
+.main{
+  box-sizing: border-box;
+  width: 0%;
+  height: 60px;
+  background: red;
+  border: solid black;
+  border-width: 0 10px 0 10px;
+  z-index: 999;
+}
+.spreadBegin{
+  animation: menuShow linear 4s;
+  animation-fill-mode:forwards
+}
+.spreadEnd{
+  width: 100%;
+  animation: menuHide linear 4s;
+  animation-fill-mode:forwards
+}
+@keyframes menuShow {
+  to{
+    width: 100%;
+  }
+  /* 10% {
+      width: 10%;
+  }
+  40% {
+      width: 40%;
+  }
+  80% {
+      width: 80%;
+  }
+  100% {
+      width: 100%;
+  } */
+}
+@keyframes menuHide {
+  to{
+    width: 0%;
+  }
+  /* 10% {
+      width: 90%;
+  }
+  40% {
+      width: 60%;
+  }
+  80% {
+      width: 20%;
+  }
+  100% {
+      width: 0%;
+  } */
+}
+.mainTail{}
+.menuBack{}
 .ctrl_box{
   position: fixed;
   z-index: 500;
