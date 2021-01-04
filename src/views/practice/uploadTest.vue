@@ -1,7 +1,13 @@
 <!-- 图片上传相关 -->
 <template>
   <div>
-    <button @click="getTxt">下载</button>
+    <div style="margin-top:100px"></div>
+    <el-button @click="goLogin">login</el-button>
+    <el-button @click="getTxt">下载</el-button>
+    <div style="margin-top:20px"></div>
+    <el-button @click="postTest">post</el-button>
+    <el-button @click="getTest">get</el-button>
+    <div style="margin-top:20px"></div>
     <input type="file" ref="uploadori" multiple  @change="addThings($event)">
     <el-upload
       class="avatar-uploader"
@@ -36,19 +42,44 @@ export default {
   },
 
   methods: {
-    getTxt(){
-      getFile().then(()=>{
-        console.log("done")
+    getTest () {
+      location.href = 'http://47.97.73.43:3006/file/fileDown'
+      // getFile({
+      //   imgName: '33'
+      // }).then(() => {
+      //   console.log('done')
+      // }).catch()
+    },
+    postTest () {
+      uploadFile({
+        a: 1,
+        b: 2
+      }).then(() => {
+        console.log('done')
       }).catch()
-      adminTable().then(()=>{
-        console.log("done")
+    },
+    goLogin () {
+      this.$router.push({
+        name: 'login',
+        query: {
+          redirect: 'uploadTest'
+        }
+        // name: r.name
+      })
+    },
+    getTxt () {
+      getFile().then(() => {
+        console.log('done')
+      }).catch()
+      adminTable().then(() => {
+        console.log('done')
       }).catch()
     },
     addThings (e) {
       console.log(e)
       const thing = this.$refs.uploadori
       console.log(thing.files)
-      let formData = new FormData();
+      let formData = new FormData()
       formData.append('file', thing.files[0]);
       console.log(formData)
       uploadFile(formData).then(()=>{

@@ -1,8 +1,8 @@
 <!-- 登录页面  -->
 <template>
   <div>
-      <div></div>
-      <el-button @click="back">返回</el-button>
+      <div style="margin-top:100px"></div>
+      <el-button  type="primary" @click="back">返回</el-button>
       <el-button @click="obj">change</el-button>
       <el-button @click="getT">登录</el-button>
       <el-button @click="removeT">注销</el-button>
@@ -42,7 +42,7 @@ export default {
   create () {
   },
   mounted () {
-    // this.redirect = route.query && route.query.redirect
+    this.redirect = this.$route.query && this.$route.query.redirect
     // this.$router.push({ path: this.redirect || "/" })
     // this.p1().then((data) => {
     //   return this.p2(data)

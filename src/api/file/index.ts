@@ -1,9 +1,10 @@
 import request from "@/utils/request"
 import api from "../index"
-export function getFile() {
+export function getFile(data:any) {
     return request({
       url: api.FILE01.url,
-      method: 'get'
+      method: 'post',
+      data:data
     })
 }
 export function uploadFile(data:any) {
