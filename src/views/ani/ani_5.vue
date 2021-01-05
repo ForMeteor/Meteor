@@ -1,4 +1,4 @@
-<!-- 天体运动 -->
+<!-- 天体运动 动态控制++ -->
 <template>
   <div id="ani_4"></div>
 </template>
