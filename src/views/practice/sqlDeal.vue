@@ -20,9 +20,9 @@ export default {
   },
 
   methods: {
-    getList(){
-      adminTable().then(()=>{
-        console.log("done")
+    getList () {
+      adminTable().then(() => {
+        console.log('done')
       }).catch()
     }
   }

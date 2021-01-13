@@ -12,11 +12,13 @@
 </template>
 
 <script>
+import { adminTable } from '@/api/admin'
 export default {
   name: 'login',
   data () {
     return {
       redirect: null,
+      socket: null
     }
   },
 
@@ -53,9 +55,56 @@ export default {
     // }).catch(res => {
     //   console.log(res)
     // })
+    this.socket = new WebSocket('ws://47.97.73.43:3006/ii')
+    // 监听socket连接
+    this.socket.onopen = this.open
+    // 监听socket错误信息
+    this.socket.onerror = this.error
+    // 监听socket消息
+    this.socket.onmessage = this.getMessage
+    // this.socket.on('wsTest', function (data) {
+    //   console.log(data)
+    // })
+    // this.socket.on('message', function (data) {
+    //   console.log(data)
+    // })
   },
 
   methods: {
+    // this.websock.onmessage = this.websocketonmessage;
+    // // this.websock.onopen = this.websocketonopen;
+    // this.websock.onerror = this.websocketonerror;
+    // this.websock.onclose = this.websocketclose;
+    // // websocketonopen(){ //连接建立之后执行send方法发送数据
+    // //   let actions = {"test":"12345"};
+    // //   this.websocketsend(JSON.stringify(actions));
+    // // },
+    // websocketonerror(){//连接建立失败重连
+    //   this.initWebSocket();
+    // },
+    // websocketonmessage(e){ //数据接收
+    //   const weGoods = JSON.parse(e.data).data;
+    //   this.companyName = weGoods.companyName;
+    //   this.startTime = weGoods.startTime;
+    //   this.redata = weGoods.itemList;
+    //   console.log('redata', this.redata)
+    // },
+    // websocketsend(Data){//数据发送
+    //   this.websock.send(Data);
+    // },
+    // websocketclose(e){  //关闭
+    //   console.log('断开连接',e);
+    // },
+    open (e) {
+      console.log(e)
+    },
+    error () {
+      console.log('error')
+    },
+    getMessage (e) {
+      console.log(JSON.parse(e.data).data)
+      console.log('getMessage')
+    },
     moveTo (r) {
       console.log(r.path)
       this.$router.push({
