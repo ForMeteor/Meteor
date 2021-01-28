@@ -44,6 +44,7 @@ export default {
   create () {
   },
   mounted () {
+    adminTable().then().catch()
     this.redirect = this.$route.query && this.$route.query.redirect
     // this.$router.push({ path: this.redirect || "/" })
     // this.p1().then((data) => {
@@ -55,7 +56,7 @@ export default {
     // }).catch(res => {
     //   console.log(res)
     // })
-    this.socket = new WebSocket('ws://47.97.73.43:3006/ii')
+    this.socket = new WebSocket('ws://47.97.73.43:3006/sql/socketTest')
     // 监听socket连接
     this.socket.onopen = this.open
     // 监听socket错误信息
