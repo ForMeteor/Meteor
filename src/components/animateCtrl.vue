@@ -1,12 +1,12 @@
 <!-- 导航菜单 -->
 <template>
   <div>
-    <div class="mainBox" @click="changeOri">
+    <!-- <div class="mainBox" @click="changeOri">
       <div class="main" :class="{'spreadBegin':spreadIf == 1,'spreadEnd':spreadIf == 2}" :style="'width:'+mainWidth+'%'">
         <div class="menuBack"></div>
         <div class="mainTail"></div>
       </div>
-    </div>
+    </div> -->
     <div class="ctrl_box" @click="wrapCtrl" v-show="wrapShow">0.0</div>
     <div class="ctrl_box" @click="wrapCtrl" v-show="!wrapShow">^_^</div>
     <div class="ctrl_wrap" v-show="wrapShow">
