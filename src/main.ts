@@ -12,6 +12,10 @@ import './permission'
 // import animated from 'animate.css'
 // Vue.use(animated)
 // console.log(sept_vue)
+// import {neon} from 'vue-canvas-effect'
+// Vue.component('customName', neon);
+import vueCanvas from 'vue-canvas-effect'
+Vue.use(vueCanvas)
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 new Vue({

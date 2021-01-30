@@ -77,6 +77,11 @@ export const constantRoutes: Array<RouteConfig> = [
     component: () => import('../views/ani/ani_5.vue')
   },
   {
+    path: '/can_1',
+    name: 'can_1',
+    component: () => import('../views/canvas/can_1.vue')
+  },
+  {
     path: '/loadingList',
     name: 'loadingList',
     component: () => import('../components/infLoadingList.vue')
