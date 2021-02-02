@@ -14,6 +14,8 @@ import './permission'
 // console.log(sept_vue)
 // import {neon} from 'vue-canvas-effect'
 // Vue.component('customName', neon);
+import {light} from 'sept_method'
+Vue.component('light', light);
 import vueCanvas from 'vue-canvas-effect'
 Vue.use(vueCanvas)
 Vue.config.productionTip = false

@@ -7,6 +7,8 @@
       <el-button @click="getT">登录</el-button>
       <el-button @click="removeT">注销</el-button>
       <el-button @click="rout">路由</el-button>
+      <!-- <light></light> -->
+      <neon-effect></neon-effect>
       <div v-for="r in menuList" :key="r.name" @click="moveTo(r)">{{r.name}}</div>
   </div>
 </template>
