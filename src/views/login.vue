@@ -46,7 +46,7 @@ export default {
   create () {
   },
   mounted () {
-    adminTable().then().catch()
+    // adminTable().then().catch()
     this.redirect = this.$route.query && this.$route.query.redirect
     // this.$router.push({ path: this.redirect || "/" })
     // this.p1().then((data) => {
@@ -58,13 +58,13 @@ export default {
     // }).catch(res => {
     //   console.log(res)
     // })
-    this.socket = new WebSocket('ws://47.97.73.43:3006/sql/socketTest')
+    // this.socket = new WebSocket('ws://47.97.73.43:3006/sql/socketTest')
     // 监听socket连接
-    this.socket.onopen = this.open
+    // this.socket.onopen = this.open
     // 监听socket错误信息
-    this.socket.onerror = this.error
+    // this.socket.onerror = this.error
     // 监听socket消息
-    this.socket.onmessage = this.getMessage
+    // this.socket.onmessage = this.getMessage
     // this.socket.on('wsTest', function (data) {
     //   console.log(data)
     // })
@@ -74,6 +74,9 @@ export default {
   },
 
   methods: {
+    tt () {
+      console.log(this.$common.getRanMath(2, 8))
+    },
     // this.websock.onmessage = this.websocketonmessage;
     // // this.websock.onopen = this.websocketonopen;
     // this.websock.onerror = this.websocketonerror;

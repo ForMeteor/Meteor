@@ -1,53 +1,115 @@
-<!--  -->
 <template>
-  <div>
-    <!-- <neon-effect :options="options"></neon-effect> -->
-    <bubbles-effect :options="options"></bubbles-effect>
-  </div>
+    <canvas ref="canvas" style="position: absolute;top: 0;left: 0;"></canvas>
 </template>
-
 <script>
+// require('comutils/animationFrame')()
+// import resize from '../../util/resize'
+// const copyObj = require('comutils/copyObj')
+
 export default {
-  name: '',
+  name: 'bubblesEffect',
   data () {
     return {
-      options: null
+      circles: [],
+      requestAniId: null
     }
   },
-
-  components: {},
-
-  computed: {},
-
-  mounted () {
-    this.setOption()
+  props: {
+    options: {
+      type: Object,
+      default: () => {
+        return {}
+      }
+    }
   },
-
+  computed: {
+    opts () {
+      return copyObj({}, {
+        color: 'rgba(225,225,225,0.5)',
+        radius: 15,
+        densety: 0.3,
+        clearOffset: 0.2
+      }, this.options)
+    }
+  },
   methods: {
-    setOption () {
-      const kk = {
-        len: 20, // 五边形的单边长度
-        count: 50, // 多少线重叠
-        rate: 20, // 速度 越小越快
-        dieChance: 0.05, // 单次绘画失败进行重绘的几率
-        sparkChance: 0.1, // [0,1] 越大画出的五边形越多重
-        sparkDist: 10, // 闪烁点的距离
-        sparkSize: 2,// 闪烁点的大小
-        contentLight: 60, // [0,100] 色块的亮度
-        shadowToTimePropMult: 6, // 五边形的内环阴影大小
-        bgColorArr: [0, 0, 0] // 背景色数组
-      }
-      const k = {
-        color: 'rgba(221,22,33,0.7)', // 'rgba(225,225,225,0.5)', // 气泡颜色
-        radius: 15, // 气泡半径
-        densety: 0.3, // 气泡密度 越大越密集(建议不要大于1)
-        clearOffset: 0.2 // 气泡消失距离[0-1] 越大越晚消失
-      }
-      this.options = k
+    randomColor () {
+      let r = Math.floor(Math.random() * 255)
+      let g = Math.floor(Math.random() * 255)
+      let b = Math.floor(Math.random() * 255)
+      let alpha = Math.random().toPrecision(2)
+      let rgba = `rgba(${r}, ${g}, ${b}, ${alpha})`
+      return rgba
     }
-  }
-}
+  },
+  mounted () {
+    let width, height, canvas, ctx, circles = [], settings = this.opts, that = this
+    initContainer()
 
+    function initContainer () {
+      width = window.innerWidth
+      height = window.innerHeight
+      canvas = that.$refs.canvas
+      canvas.width = width
+      canvas.height = height
+      ctx = canvas.getContext('2d')
+      for (let x = 0; x < width * settings.densety; x++) {
+        let c = new Circle()
+        circles.push(c)
+      }
+      animate()
+    }
+
+    function animate () {
+      cancelAnimationFrame(self.requestAniId)
+      ctx.clearRect(0, 0, width, height)
+      for (let i in circles) {
+        circles[i].draw()
+      }
+      self.requestAniId = requestAnimationFrame(animate)
+    }
+
+    function Circle () {
+      var self = this
+      this.pos = {}
+      init()
+
+      function init () {
+        self.pos.x = Math.random() * width
+        self.pos.y = height + Math.random() * 100
+        self.alpha = 0.1 + Math.random() * settings.clearOffset
+        self.scale = 0.1 + Math.random() * 0.3
+        self.speed = Math.random()
+        self.color = settings.color === 'random' ? that.randomColor() : settings.color
+      }
+
+      this.draw = function () {
+        if (self.alpha <= 0) {
+          init();
+        }
+        self.pos.y -= self.speed
+        self.alpha -= 0.0005
+        ctx.beginPath()
+        ctx.arc(self.pos.x, self.pos.y, self.scale * settings.radius, 0, 2 * Math.PI, false)
+        ctx.fillStyle = self.color
+        ctx.fill()
+        ctx.closePath()
+      };
+    }
+
+    resize(() => {
+      width = window.innerWidth
+      height = window.innerHeight
+      canvas.width = width
+      canvas.height = height
+    })
+  },
+  beforeDestroy () {
+    cancelAnimationFrame(this.requestAniId)
+  }
+  // const throttle = require('comutils/throttle')
+  // const resize = (calback, delay) => {
+  //   window.addEventListener('resize', throttle(calback, delay));
+  // }
+}
 </script>
-<style  scoped>
-</style>
