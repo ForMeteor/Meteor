@@ -82,6 +82,11 @@ export const constantRoutes: Array<RouteConfig> = [
     component: () => import('../views/canvas/can_1.vue')
   },
   {
+    path: '/can_2',
+    name: 'can_2',
+    component: () => import('../views/canvas/can_2.vue')
+  },
+  {
     path: '/loadingList',
     name: 'loadingList',
     component: () => import('../components/infLoadingList.vue')
