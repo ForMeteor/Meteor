@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-  <div></div>
+  <div>neo</div>
 </template>
 
 <script>

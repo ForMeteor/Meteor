@@ -14,7 +14,7 @@ export const constantRoutes: Array<RouteConfig> = [
   {
     path: '/',
     name: 'index',
-    component:login
+    component:Home
   },
   {
     path: '/login',

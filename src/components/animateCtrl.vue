@@ -49,14 +49,14 @@ export default {
           name: 'ani_5',
           path: 'ani_5'
         },
-        {
-          name: 'can_1',
-          path: 'can_1'
-        },
-        {
-          name: 'can_2',
-          path: 'can_2'
-        },
+        // {
+        //   name: 'can_1',
+        //   path: 'can_1'
+        // },
+        // {
+        //   name: 'can_2',
+        //   path: 'can_2'
+        // },
         {
           name: 'loadList',
           path: 'loadingList'

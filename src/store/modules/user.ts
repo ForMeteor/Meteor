@@ -38,19 +38,18 @@ const user = {
     },
   },
   actions:{
-    // 为什么不mutation
-    logIn({ commit }, userInfo:any){
-      // return 返回值
-      // getMenu().then((ews)=>{
-      //   console.log(ews)
-      // }).catch()
-      setToken(userInfo)
-      commit('SET_TOKEN',userInfo)
-    },
-    logOut({ commit }){
-      removeToken()
-      commit('SET_TOKEN','')
-    },
+    // logIn({ commit }, userInfo:any){
+    //   // return 返回值
+    //   // getMenu().then((ews)=>{
+    //   //   console.log(ews)
+    //   // }).catch()
+    //   setToken(userInfo)
+    //   commit('SET_TOKEN',userInfo)
+    // },
+    // logOut({ commit }){
+    //   removeToken()
+    //   commit('SET_TOKEN','')
+    // },
 
   }
 }

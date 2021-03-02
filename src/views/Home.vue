@@ -1,20 +1,19 @@
 <template>
   <div>
-    <!-- 球状菜单 -->
-    home23423234
-    <!-- <Menu :mack='msg'></Menu> -->
-    <!-- <div class="box animated bounceInDown"></div> -->
+    <Can></Can>
   </div>
 </template>
 
 <script>
+import Can from './canvas/can_2.vue'
 import Menu from '@/components/circleMenu'
 import { adminTable, adminQuery } from '@/api/admin'
 // @ is an alias to /src
 export default {
   name: 'Home',
   components: {
-    Menu
+    Menu,
+    Can,
   },
   data () {
     return {
