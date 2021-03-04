@@ -52,8 +52,6 @@ export default {
       }
       this.circle.lastX = this.lerp(this.circle.lastX, this.mouseX, 0.25)
       this.circle.lastY = this.lerp(this.circle.lastY, this.mouseY, 0.25)
-      console.log('清除')
-      console.log(canvas.width)
       ctx.beginPath()
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       ctx.arc(this.circle.lastX, this.circle.lastY, this.circle.radius, 0, Math.PI * 2, false)

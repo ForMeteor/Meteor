@@ -1,6 +1,9 @@
 <template>
   <div>
-    <Can></Can>
+    <neon-effect></neon-effect>
+    <!-- <Can></Can> -->
+    <!-- <lines></lines>
+    <light></light> -->
   </div>
 </template>
 
@@ -21,10 +24,11 @@ export default {
     }
   },
   mounted () {
+    console.log(this.$common)
     // +背景动画
-    adminTable().then((res) => {
-      console.log(res)
-    }).catch()
+    // adminTable().then((res) => {
+    //   console.log(res)
+    // }).catch()
   },
   methods: {
     menu () {

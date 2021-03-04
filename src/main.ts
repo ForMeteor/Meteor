@@ -8,18 +8,11 @@ import 'element-ui/lib/theme-chalk/index.css'
 import './common/directive' // 自定义指令
 import './common/filter' // 自定义管道符
 import './permission'
-// import sept from 'sept_vue'
-// import animated from 'animate.css'
-// Vue.use(animated)
-// console.log(sept_vue)
-// import {neon} from 'vue-canvas-effect'
-// Vue.component('customName', neon);
-import mete from 'sept_method'
-Vue.use(mete)
-console.log(mete)
-console.log(Vue.prototype)
+import septMethod from 'sept_method' // 自用 方法及组件
+Vue.use(septMethod)
 import vueCanvas from 'vue-canvas-effect'
 Vue.use(vueCanvas)
+console.warn(vueCanvas)
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 new Vue({

@@ -10,14 +10,14 @@
       </div>
       <div class="tty">{{msg|toUpper}}</div>
       <div class="tty">{{gugu}}</div>
-      <div class="ttt" @click="change">
+      <div class="tty" @click="change">
         {{mile}}
       </div>
   </div>
 </template>
 
 <script>
-import { BG } from '@/common/constant'
+// import { BG } from '@/common/constant'
 import { adminTable, adminQuery } from '@/api/admin'
 export default {
   name: 'jsTest',
@@ -35,10 +35,7 @@ export default {
         a: 21,
         b: 22
       }],
-      gugu: {
-        name: "2",
-        msg: "22"
-      }
+      gugu: [1, 2, 3, 4]
     }
   },
   directives: {
@@ -57,19 +54,14 @@ export default {
 
   mounted () {
     // console.log(0.1+0.2!==0.3)
-    console.log(BG)
     console.log(process.env)
     console.log(process.env.VUE_APP_REQ_API)
     console.log(this.$store)
-    adminTable().then((res) => {
-      console.log(res)
-    }).catch()
     // adminQuery({
     //   username:'meteor'
     // }).then((res) => {
     //   console.log(res)
     // }).catch()
-    this.$store.commit("changeName")
     console.log(this.$store)
     const yu = 1111
     const ty = {
@@ -126,9 +118,8 @@ export default {
 
   methods: {
     change () {
-      this.gugu.msg = "11"
-      this.$set(this.mile, 0, { a: 2222 })
-      console.log(this.mile)
+      this.gugu[0] = 22
+      // this.$set(this.gugu, 0, 22)
     }
   }
 }
@@ -136,7 +127,7 @@ export default {
 </script>
 <style  scoped>
 .tty{
-    width: 60px;text-align: center;
+    width: 600px;text-align: center;
     height: 60px;line-height: 60px;
 }
 .ttt{

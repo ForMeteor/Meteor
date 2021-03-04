@@ -1,5 +1,5 @@
-// 常量 
-export const BG = [
+// 路由配置 
+export const menuList = [
     {
         name:'',
         path:''

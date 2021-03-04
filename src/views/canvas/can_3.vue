@@ -19,6 +19,7 @@ export default {
   },
 
   methods: {
+    // https://blog.csdn.net/weixin_42458965/article/details/106981229  diff算法详解
     // https://wow.techbrood.com/fiddle/28643
 //     function() {
 //     //封装方法，压缩之后减少文件大小
