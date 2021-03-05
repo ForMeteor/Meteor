@@ -32,6 +32,19 @@ export default {
             // 音频分析器和音频绑定，可以实时采集音频时域数据进行快速傅里叶变换
             this.analyser = new THREE.AudioAnalyser(audio);
         });
+        function render() {
+            renderer.render(scene, camera); //执行渲染操作
+            requestAnimationFrame(render); //请求再次执行渲染函数render，渲染下一帧
+            if (analyser) {
+                // getAverageFrequency()返回平均音频
+                var frequency = analyser.getAverageFrequency();
+                mesh.scale.y = 5 * frequency / 256;
+                mesh.material.color.r = 3 * frequency / 256;
+                // 返回傅里叶变换得到的所有频率
+                // console.log(analyser.getFrequencyData())
+            }
+        }
+        render();
     }
   }
 }
