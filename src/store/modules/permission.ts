@@ -1,10 +1,11 @@
 // 权限控制
 import { constantRoutes } from '@/router'
+import MenuList from '@/assets/menu.json'
 // import MenuList from '@/assets/menu.json'
 import router from '@/router'
 const permission = {
     state : {
-        routes: [],
+        routes: MenuList, // [],
         addRoutes: [],
         // mockData: MenuList,
         buttons: [],
@@ -21,7 +22,7 @@ const permission = {
         },
         SET_ROUTES: (state:any, routes:any) => {
             state.addRoutes = routes
-            state.routes = constantRoutes.concat(routes)
+            // state.routes = constantRoutes.concat(routes)
         },
         SET_BUTTONS: (state:any, buttons:any) => {
             state.buttons = buttons
@@ -29,32 +30,30 @@ const permission = {
     },
 
     actions: {
-        // GenerateRoutes({ commit, state}) {
+        // GenerateRoutes({commit, state}:any) {
         //     return new Promise(resolve => {
         //         console.log('GenerateRoutes')
-        //         const accessedRoutes = filterAsyncRouter(state.mockData)
-        //         resolve(accessedRoutes)
+        //         const accessedRoutes = filterAsyncRouter(MenuList)
+        //         router.addRoutes(accessedRoutes)
+        //         resolve(router)
         //     })
         // }
     }
 }
-// function filterAsyncRouter(menu:any){
-//     return menu.filter((route:any) => {
-//         route.component = loadView(route.path)
-//         if (route.children != null && route.children && route.children.length) {
-//           route.children = filterAsyncRouter(route.children)
-//         }
-//         return true
-//     })
-// }
+function filterAsyncRouter(menu:any){
+    return menu.filter((route:any) => {
+        route.component = loadView(route.component)
+        if (route.children != null && route.children && route.children.length) {
+          route.children = filterAsyncRouter(route.children)
+        }
+        return true
+    })
+}
 
-// export const loadView = (view:any) => { // 路由懒加载
-//     console.log(view)
-//     return  () => import(`@/views${view}`)
+// function loadView(view:any){ // 路由懒加载
+//     return (resolve :any) =>  require([`${view}`], resolve)
+//     return  () => import(`${view}`)
 //     return (resolve:any) =>  require([`@/views${view}`], resolve)
 //   }
-// function _import (file) {
-//   return () => import('@/views/' + file + '.vue')
-// }
 export default permission
   

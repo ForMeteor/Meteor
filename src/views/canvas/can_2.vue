@@ -22,7 +22,8 @@ export default {
       mouseX: 0,
       mouseY: 0,
       circle: {},
-      radius: 10
+      radius: 10,
+      t: 0
     }
   },
   props: {
@@ -54,6 +55,9 @@ export default {
       this.circle.lastY = this.lerp(this.circle.lastY, this.mouseY, 0.25)
       ctx.beginPath()
       ctx.clearRect(0, 0, canvas.width, canvas.height)
+      this.drawBall(this.circle.lastX, this.circle.lastY, this.circle.radius * 2, 2)
+      this.drawBall(this.circle.lastX, this.circle.lastY, this.circle.radius * 4, 2)
+      this.drawBall(this.circle.lastX, this.circle.lastY, this.circle.radius * 6, 2)
       ctx.arc(this.circle.lastX, this.circle.lastY, this.circle.radius, 0, Math.PI * 2, false)
       ctx.fillStyle = '#ffffff'
       ctx.fill()
@@ -76,6 +80,15 @@ export default {
       if (this.radius <= 10) {
         cancelAnimationFrame(k)
       }
+    },
+    drawBall (x, y, radius, rr) {
+      this.t += 0.02
+      x = x + Math.cos(this.t) * radius
+      y = y + Math.sin(this.t) * radius
+      ctx.beginPath()
+      ctx.arc(x, y, rr, 0, 2 * Math.PI, true)
+      ctx.fill()
+      ctx.closePath()
     }
   },
   mounted () {

@@ -8,7 +8,7 @@ import { getToken } from '@/utils/auth'
 import axios from "axios"
 
 NProgress.configure({ showSpinner: false })
-const whiteList = ['/login', '/auth-redirect', '/bind', '/register','jsTest']  // 白名单
+const whiteList = ['/login', '/auth-redirect', '/bind', '/register','jsTest']
 
 router.beforeEach((to, from, next) => {
   NProgress.start()

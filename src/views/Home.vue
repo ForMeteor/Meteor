@@ -1,7 +1,7 @@
 <template>
   <div>
-    <neon-effect></neon-effect>
-    <!-- <Can></Can> -->
+    <!-- <neon-effect></neon-effect> -->
+    <Can></Can>
     <!-- <lines></lines>
     <light></light> -->
   </div>
@@ -24,7 +24,10 @@ export default {
     }
   },
   mounted () {
-    console.log(this.$common)
+    // this.$store.dispatch('GenerateRoutes').then((res) => {
+    //   console.log(res)
+    // })
+    // this.$store.commit('SET_ROUTES', routes)
     // +背景动画
     // adminTable().then((res) => {
     //   console.log(res)
