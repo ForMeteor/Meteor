@@ -1,7 +1,8 @@
 <template>
   <div>
     <!-- <neon-effect></neon-effect> -->
-    <Can></Can>
+    <!-- <Can></Can> -->
+    <Ttt></Ttt>
     <!-- <lines></lines>
     <light></light> -->
   </div>
@@ -9,6 +10,7 @@
 
 <script>
 import Can from './canvas/can_2.vue'
+import Ttt from './canvas/aniMenu.vue'
 import Menu from '@/components/circleMenu'
 import { adminTable, adminQuery } from '@/api/admin'
 // @ is an alias to /src
@@ -17,6 +19,7 @@ export default {
   components: {
     Menu,
     Can,
+    Ttt
   },
   data () {
     return {
