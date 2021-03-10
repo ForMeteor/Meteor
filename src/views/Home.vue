@@ -2,7 +2,7 @@
   <div>
     <!-- <neon-effect></neon-effect> -->
     <!-- <Can></Can> -->
-    <Ttt></Ttt>
+    <Ttt :settings="settings"></Ttt>
     <!-- <lines></lines>
     <light></light> -->
   </div>
@@ -23,7 +23,19 @@ export default {
   },
   data () {
     return {
-      msg: 'msg to menu'
+      msg: 'msg to menu',
+      settings: {
+        menuRadius: 150,
+        isCenter: true,
+        backImg:require('@/assets/resourse/jina.jpg'),
+        menuLength: null,
+        itemDetail:[
+          {
+            itemRadius: null,
+            img:null,
+          }
+        ]
+      }
     }
   },
   mounted () {
