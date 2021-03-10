@@ -22,9 +22,17 @@
     <div class="sqMain8">
       <div class="sq8"></div>
     </div>
-    <div class="sqMain9"></div>
-    <div class="sqMain9"></div>
-    <div class="sqMain9"></div>
+    <div class="sqMain9">
+      <img :src="Img1">
+      <img :src="Img2">
+    </div>
+    <div class="sqMain9">{{2 | addMount(testNnmber)}}</div>
+    <div class="sqMain10" v-if="flex.length > 0">
+        <div v-for="(r,index) in flex" :key="index" class="list"></div>
+        <i></i><i></i><i></i><i></i><i></i><i></i>
+        <i></i><i></i><i></i><i></i><i></i><i></i>
+        <i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
   </div>
 </template>
 
@@ -33,18 +41,29 @@ export default {
   name: 'cssTest',
   data () {
     return {
-      dataList: null
+      testNnmber: 200,
+      dataList: null,
+      flex: [],
+      Img1: require('@/assets/logo.png'),
+      Img2: require('@/assets/icon_more@2x.png')
     }
   },
 
   components: {},
 
   computed: {},
-
+  filters: {
+    addMount: function (a, b, c) {
+      return a + (b || 0) + (c || 0)
+    }
+  },
   mounted () {
     this.dataList = Array(100)
     for (let i = 0; i < 100; i++) {
       this.dataList[i] = i + 1
+    }
+    for (let i = 0; i < 10; i++) {
+      this.flex.push([])
     }
   },
 
@@ -56,6 +75,7 @@ export default {
 .normal_back{
   display: flex;
   flex-wrap: wrap;
+  overflow-y: scroll;
 }
 .sqMain{
   width: 200px;
@@ -341,5 +361,35 @@ export default {
   height: 200px;
   margin: 10px;
   border: 1px solid black;
+}
+.sqMain9 > img{
+  width: 50%;height: 50%;
+}
+.sqMain10{
+  width: 200px;
+  margin: 10px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+/* .flexIt:last-child{
+  margin-right: auto;;
+} */
+/* .flexIt:last-child:nth-child(4n - 1){
+  background: red;
+  margin-right: calc(24% + 4% / 3);
+}
+.flexIt:last-child:nth-child(4n - 2){
+  background: red;
+  margin-right: calc(48% + 8% / 3);
+} */
+.list {
+    width: 60px; height:20px;
+    background-color: skyblue;
+    margin-top: 20px;
+}
+.sqMain10 > i {
+    width: 60px;
 }
 </style>
