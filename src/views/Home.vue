@@ -11,13 +11,11 @@
 <script>
 import Can from './canvas/can_2.vue'
 import Ttt from './canvas/aniMenu.vue'
-import Menu from '@/components/circleMenu'
 import { adminTable, adminQuery } from '@/api/admin'
 // @ is an alias to /src
 export default {
   name: 'Home',
   components: {
-    Menu,
     Can,
     Ttt
   },
