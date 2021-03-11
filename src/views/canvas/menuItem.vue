@@ -9,6 +9,12 @@
     'backgroundImage':'url(' + itemSettings.img + ')'
     }" @click.stop="itemClick"></div>
 </transition>
+<!-- <transition
+    @before-enter="beforeLeave"
+    @enter="leaving"
+    @after-enter="afterLeave">
+    <div class="transition" ref="transition" v-show="boxShow"></div>
+</transition> -->
 </template>
 
 <script>
@@ -31,6 +37,15 @@ export default {
     itemClick () {
       console.log('item点击')
       // 路由跳转
+    },
+    beforeLeave (el) {
+      // el.style.transform = el.style.webkitTransform = `translate3d(0,${y}px,0)`
+    },
+    leaving (el, done) {
+      // 2
+    },
+    afterLeave (el) {
+      // el.style.display = 'none'
     }
   }
 }
@@ -51,4 +66,5 @@ export default {
 .fade-enter-active, .fade-leave-active {
   transition: all 2s;
 }
+
 </style>
