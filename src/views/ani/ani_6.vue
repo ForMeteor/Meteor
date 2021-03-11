@@ -17,7 +17,7 @@ export default {
 
   computed: {},
 
-  mounted: {},
+  mounted(){},
 
   methods: {
     init () {
