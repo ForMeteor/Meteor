@@ -41,13 +41,13 @@ const permission = {
     }
 }
 function filterAsyncRouter(menu:any){
-    return menu.filter((route:any) => {
-        route.component = loadView(route.component)
-        if (route.children != null && route.children && route.children.length) {
-          route.children = filterAsyncRouter(route.children)
-        }
-        return true
-    })
+    // return menu.filter((route:any) => {
+    //     route.component = loadView(route.component)
+    //     if (route.children != null && route.children && route.children.length) {
+    //       route.children = filterAsyncRouter(route.children)
+    //     }
+    //     return true
+    // })
 }
 
 // function loadView(view:any){ // 路由懒加载

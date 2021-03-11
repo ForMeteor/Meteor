@@ -2,7 +2,7 @@
   <div id="app" @contextmenu.prevent="">
     <ctrl v-if="!appType"></ctrl>
     <!-- <Back v-if="backShow"></Back> -->
-    <robot></robot>
+    <!-- <robot></robot> -->
     <mainApp v-if="appType"></mainApp>
     <router-view></router-view>
     <!-- name="tourist" -->

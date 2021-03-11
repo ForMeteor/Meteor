@@ -25,14 +25,30 @@ export default {
     return {
       msg: 'msg to menu',
       settings: {
-        menuRadius: 150,
+        menuRadius: 100,
         isCenter: true,
-        backImg:require('@/assets/resourse/jina.jpg'),
-        menuLength: null,
-        itemDetail:[
+        backImg: require('@/assets/resourse/jina.jpg'),
+        menuLength: 150,
+        itemDetail: [
           {
-            itemRadius: null,
-            img:null,
+            itemRadius: 50,
+            img: require('@/assets/birds/Ivan6.jpg')
+          },
+          {
+            itemRadius: 50,
+            img: require('@/assets/birds/Ivan7.jpg')
+          },
+          {
+            itemRadius: 50,
+            img: require('@/assets/birds/Ivan8.jpg')
+          },
+          {
+            itemRadius: 50,
+            img: require('@/assets/birds/Ivan9.jpg')
+          },
+          {
+            itemRadius: 50,
+            img: require('@/assets/birds/Ivan10.jpg')
           }
         ]
       }
