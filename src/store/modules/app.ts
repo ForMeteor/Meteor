@@ -4,7 +4,8 @@
 const state = {
   appType: false,
   sideNav: true,
-  appName: 'destiny'
+  appName: 'destiny',
+  testValue: '111'
 }
 
 const mutations = {

@@ -1,5 +1,6 @@
 import request from "@/utils/request"
 import api from "../index"
+import menu from "@/assets/menu.json"
 export function adminTable() {
     return request({
       url: api.ADMIN01.url,
@@ -14,6 +15,11 @@ export function adminQuery(data:object) {
     })
 }
 export function getMenu() {
+  return new Promise((resolve, reject)=>{
+    let res = menu
+    console.warn(res)
+    resolve(res)
+  })
   // return request({
   //   url: '@/assets/menu.json',
   //   method: 'get'

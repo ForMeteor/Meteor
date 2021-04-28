@@ -2,61 +2,23 @@
   {
     "path": "/webTest",
     "name": "webTest",
-    "component": "../views/webTest.vue"
+    "meta": {"title": "系统管理", "icon": "system"},
+    "component": "webTest.vue",
+    "children": []
   },
   {
     "path": "/jsTest",
     "name": "jsTest",
-    "component": "../views/jsTest.vue"
+    "component": "jsTest.vue"
   },
   {
     "path": "/cssTest",
     "name": "cssTest",
-    "component": "../views/cssTest.vue"
+    "component": "cssTest.vue"
   },
   {
     "path": "/loadingList",
     "name": "loadingList",
-    "component": "../components/infLoadingList.vue"
-  },
-  {
-    "path": "/uploadTest",
-    "name": "uploadTest",
-    "component": "../views/practice/uploadTest.vue"
-  },
-  {
-    "path": "/ani_1",
-    "name": "ani_1",
-    "component": "../views/ani/ani_1.vue"
-  },
-  {
-    "path": "/ani_2",
-    "name": "ani_2",
-    "component": "../views/ani/ani_2.vue"
-  },
-  {
-    "path": "/ani_3",
-    "name": "ani_3",
-    "component": "../views/ani/ani_3.vue"
-  },
-  {
-    "path": "/ani_4",
-    "name": "ani_4",
-    "component": "../views/ani/ani_4.vue"
-  },
-  {
-    "path": "/ani_5",
-    "name": "ani_5",
-    "component": "../views/ani/ani_5.vue"
-  },
-  {
-    "path": "/can_1",
-    "name": "can_1",
-    "component": "../views/canvas/can_1.vue"
-  },
-  {
-    "path": "/can_2",
-    "name": "can_2",
-    "component": "../views/canvas/can_2.vue"
+    "component": "infLoadingList.vue"
   }
 ]
