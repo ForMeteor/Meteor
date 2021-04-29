@@ -83,7 +83,11 @@ export default {
 
   components: {},
 
-  computed: {},
+  computed: {
+    totalRoutes: function () {
+      return this.$store.getters.totalRoutes
+    }
+  },
 
   mounted () {
     console.warn(window.screen.width)

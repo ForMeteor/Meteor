@@ -3,9 +3,9 @@
     <!-- <neon-effect></neon-effect> -->
     <!-- <Can></Can> -->
     <div ref="msgDiv">{{msg}}</div>
-    <div v-if="msg1" @click="go1">Message got outside $nextTick: {{msg1}}</div>
-    <div v-if="msg2" @click="go2">Message got inside $nextTick: {{msg2}}</div>
-    <div v-if="msg3" @click="go3">Message got outside $nextTick: {{msg3}}</div>
+    <div  @click="go1">Message got outside $nextTick: {{msg1}}</div>
+    <div  @click="go2">Message got inside $nextTick: {{msg2}}</div>
+    <div  @click="go3">Message got outside $nextTick: {{msg3}}</div>
     <Ttt :settings="settings"></Ttt>
     <!-- <lines></lines>
     <light></light> -->
@@ -24,6 +24,10 @@ export default {
     Ttt
   },
   computed: {
+    // ...mapGetters
+    totalRoutes: function () {
+      return this.$store.getters.totalRoutes
+    }
   },
   directives: {
     bless: {
@@ -78,19 +82,13 @@ export default {
     }
   },
   mounted () {
-    this.msg = 'Hello world'
-    this.msg1 = this.$refs.msgDiv.innerHTML // msg to
-    this.$nextTick(() => {
-      this.msg2 = this.$refs.msgDiv.innerHTML // hl
-    })
-    this.msg3 = this.$refs.msgDiv.innerHTML // msg to
-    getMenu().then((res) => {
-      console.log(res)
-    })
+    // getMenu().then((res) => {
+    //   console.log(res)
+    // })
+    console.warn(this.totalRoutes)
     // this.$store.dispatch('GenerateRoutes').then((res) => {
     //   console.log(res)
     // })
-    // this.$store.commit('SET_ROUTES', routes)
     // +背景动画
     // adminTable().then((res) => {
     //   console.log(res)

@@ -14,7 +14,7 @@ const getters = {
     permissions: (state:any) => state.user.permissions,
     userId: (state:any) => state.user.userId,
     // -- 路由
-    mockData:(state:any) => state.permission.mockData,
+    totalRoutes:(state:any) => state.permission.routes,
   }
   export default getters
   

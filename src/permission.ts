@@ -12,6 +12,7 @@ const whiteList = ['/login', '/auth-redirect', '/bind', '/register','jsTest']
 
 router.beforeEach((to, from, next) => {
   NProgress.start()
+  // token login 重定向
   if(store.state.permission.addRoutes.length == 0){
     store.dispatch('GenerateRoutes').then(accessRoutes => {
       router.addRoutes(accessRoutes) // 动态添加可访问路由表 根据roles权限生成可访问的路由表

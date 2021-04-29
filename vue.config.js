@@ -72,7 +72,8 @@ module.exports = {
       //   }
       // }
     },
-    disableHostCheck: true
+    disableHostCheck: true,
+    open: true
   }
 
 }
