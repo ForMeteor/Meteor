@@ -2,23 +2,46 @@
   {
     "path": "/webTest",
     "name": "webTest",
-    "meta": {"title": "系统管理", "icon": "system"},
+    "meta": {"title": "综合", "icon": "system"},
     "component": "webTest.vue",
     "children": []
   },
   {
     "path": "/jsTest",
     "name": "jsTest",
+    "meta": {"title": "逻辑", "icon": "system"},
     "component": "jsTest.vue"
   },
   {
     "path": "/cssTest",
     "name": "cssTest",
+    "meta": {"title": "样式动画", "icon": "system"},
     "component": "cssTest.vue"
   },
   {
-    "path": "/loadingList",
-    "name": "loadingList",
-    "component": "infLoadingList.vue"
+    "path": "/canvasMain",
+    "name": "canvas",
+    "meta": {"title": "canvas", "icon": "system"},
+    "component": "canvas/index.vue"
+  },
+  {
+    "path": "/threeMain",
+    "name": "three",
+    "meta": {"title": "three", "icon": "system"},
+    "component": "three/index.vue"
+  },
+  {
+    "path": "/practice",
+    "name": "practice",
+    "meta": {"title": "practice", "icon": "system"},
+    "component": "practice/index.vue",
+    "children":[
+      {
+        "path": "/snake",
+        "name": "snake",
+        "meta": {"title": "snake", "icon": "system"},
+        "component": "practice/snake.vue"
+      }
+    ]
   }
 ]

@@ -1,5 +1,4 @@
 # destiny
-# 动画 样式 
 ## Project setup
 ```
 npm install
@@ -21,7 +20,5 @@ npm run lint
 ```
 ### components
 ```
-animateCtrl   动画控制菜单
-ballBack      背景 彩球
-robotMenu     精灵菜单
+mia
 ```

@@ -1,13 +1,11 @@
 <!--  -->
 <template>
-  <div>
-      <div>404 not found</div>
-  </div>
+  <div>practice Main</div>
 </template>
 
 <script>
 export default {
-  name: '404',
+  name: 'practice',
   data () {
     return {
     }
@@ -19,9 +17,7 @@ export default {
 
   mounted () {},
 
-  methods: {
-
-  }
+  methods: {}
 }
 
 </script>

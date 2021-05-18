@@ -110,7 +110,7 @@ export default {
     },
     go3 () {
       this.$router.push({
-        path: '/cssTest'
+        path: '/threeMain'
       })
     }
   }

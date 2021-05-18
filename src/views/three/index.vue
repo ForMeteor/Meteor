@@ -1,13 +1,11 @@
 <!--  -->
 <template>
-  <div>
-      <div>404 not found</div>
-  </div>
+  <div>three main</div>
 </template>
 
 <script>
 export default {
-  name: '404',
+  name: 'three',
   data () {
     return {
     }
@@ -17,11 +15,11 @@ export default {
 
   computed: {},
 
-  mounted () {},
+  mounted () {
+    console.log('ass')
+  },
 
-  methods: {
-
-  }
+  methods: {}
 }
 
 </script>

@@ -13,7 +13,8 @@
       <div class="ctrl_item" @click="theme">background</div>
       <div class="ctrl_item" @click="robotMenu">cat</div>
       <div class="ctrl_item" @click="home">home</div>
-      <div class="ctrl_item" v-for="r in aniData" :key="r.name" @click="ani(r.path)">{{r.name}}</div>
+      <div class="ctrl_item" v-for="r in totalRoutes" :key="r.name" @click="ani(r.path)">{{r.name}}</div>
+      <div class="ctrl_item" @click="ani('err')">error</div>
     </div>
   </div>
 </template>
@@ -27,57 +28,7 @@ export default {
       originDirect: false,
       mainWidth: 0,
       wrapShow: false,
-      timer: null,
-      aniData: [
-        {
-          name: 'ani_1',
-          path: 'ani_1'
-        },
-        {
-          name: 'ani_2',
-          path: 'ani_2'
-        },
-        {
-          name: 'ani_3',
-          path: 'ani_3'
-        },
-        {
-          name: 'ani_4',
-          path: 'ani_4'
-        },
-        {
-          name: 'ani_5',
-          path: 'ani_5'
-        },
-        {
-          name: 'can_1',
-          path: 'can_1'
-        },
-        {
-          name: 'can_2',
-          path: 'can_2'
-        },
-        {
-          name: 'loadList',
-          path: 'loadingList'
-        },
-        {
-          name: 'webSocket',
-          path: 'webTest'
-        },
-        {
-          name: 'jsTest',
-          path: 'jsTest'
-        },
-        {
-          name: 'cssTest',
-          path: 'cssTest'
-        },
-        {
-          name: 'uploadTest',
-          path: 'uploadTest'
-        }
-      ]
+      timer: null
     }
   },
 
@@ -119,8 +70,9 @@ export default {
       this.$router.push('home')
     },
     ani (path) {
-      this.$router.push(path)
-      // console.log(this.$store.state.permission.routes)
+      this.$router.push({
+        path: path
+      })
     },
     changeOri () {
       this.originDirect = !this.originDirect
