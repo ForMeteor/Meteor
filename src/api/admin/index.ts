@@ -1,6 +1,13 @@
 import request from "@/utils/request"
 import api from "../index"
 import menu from "@/assets/menu.json"
+export function postTest(data:object) {
+  return request({
+    url: api.POSTTEST.url,
+    method: 'post',
+    data:data
+  })
+}
 export function adminTable() {
     return request({
       url: api.ADMIN01.url,

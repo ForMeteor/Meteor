@@ -6,6 +6,11 @@
     <div  @click="go1">Message got outside $nextTick: {{msg1}}</div>
     <div  @click="go2">Message got inside $nextTick: {{msg2}}</div>
     <div  @click="go3">Message got outside $nextTick: {{msg3}}</div>
+    <form action="/file/upload" method="post" enctype="multipart/form-data">
+        <h2>单图上传</h2>
+        <input type="file" name="logo">
+        <input type="submit" value="提交">
+    </form>
     <Ttt :settings="settings"></Ttt>
     <!-- <lines></lines>
     <light></light> -->
@@ -15,7 +20,8 @@
 <script>
 import Can from './canvas/can_2.vue'
 import Ttt from './canvas/aniMenu.vue'
-import { adminTable, adminQuery, getMenu } from '@/api/admin'
+import { adminTable, adminQuery, getMenu, postTest } from '@/api/admin'
+import { uploadFile } from '@/api/file'
 // @ is an alias to /src
 export default {
   name: 'Home',
@@ -82,6 +88,22 @@ export default {
     }
   },
   mounted () {
+    let k = {
+      name: 'li li',
+      pas: 'iopea',
+      age: 18
+    }
+    postTest(k).then((res) => {
+      console.log(res)
+    })
+    adminTable().then((res) => {
+      console.log(res)
+    })
+    adminQuery({
+      username: 'Meteor'
+    }).then((res) => {
+      console.log(res)
+    })
     // getMenu().then((res) => {
     //   console.log(res)
     // })

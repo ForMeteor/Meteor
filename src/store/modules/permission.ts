@@ -9,6 +9,7 @@ const permission = {
         buttons: [],
         catShow: true, // 精灵显示控制
         backShow: false, // 页面背景显示控制
+        hasSet:false
     },
 
     mutations : {
@@ -17,6 +18,9 @@ const permission = {
         },
         changeBack(state:any){
             state.backShow = !state.backShow
+        },
+        HAS_SET(state:any){
+            state.hasSet = true
         },
         SET_ROUTES: (state:any, routes:any) => {
             state.addRoutes = routes
@@ -38,6 +42,7 @@ const permission = {
         //     })
         // }
         GenerateRoutes({ commit }:any) {
+            console.warn('路由添加运行')
             return new Promise(resolve => {
               // 向后端请求路由数据
               getMenu().then(res => {

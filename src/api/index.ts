@@ -21,6 +21,10 @@ const api = {
       url: "/file/upload", // post 上传文件
       name: "上传文件"
     },
+    POSTTEST:{
+      url: "/postman/test", // post 测试
+      name: "post测试"
+    }
   };
   export default api;
   
