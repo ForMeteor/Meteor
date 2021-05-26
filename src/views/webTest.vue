@@ -22,7 +22,6 @@ export default {
   computed: {},
 
   mounted () {
-    console.warn("kiki")
     this.initWebSocket()
   },
 

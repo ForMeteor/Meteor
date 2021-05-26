@@ -6,11 +6,6 @@
     <div  @click="go1">Message got outside $nextTick: {{msg1}}</div>
     <div  @click="go2">Message got inside $nextTick: {{msg2}}</div>
     <div  @click="go3">Message got outside $nextTick: {{msg3}}</div>
-    <form action="/file/upload" method="post" enctype="multipart/form-data">
-        <h2>单图上传</h2>
-        <input type="file" name="logo">
-        <input type="submit" value="提交">
-    </form>
     <Ttt :settings="settings"></Ttt>
     <!-- <lines></lines>
     <light></light> -->
@@ -107,7 +102,6 @@ export default {
     // getMenu().then((res) => {
     //   console.log(res)
     // })
-    console.warn(this.totalRoutes)
     // this.$store.dispatch('GenerateRoutes').then((res) => {
     //   console.log(res)
     // })

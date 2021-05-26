@@ -31,17 +31,15 @@
     "component": "three/index.vue"
   },
   {
-    "path": "/practice",
-    "name": "practice",
-    "meta": {"title": "practice", "icon": "system"},
-    "component": "practice/index.vue",
-    "children":[
-      {
-        "path": "/snake",
-        "name": "snake",
-        "meta": {"title": "snake", "icon": "system"},
-        "component": "practice/snake.vue"
-      }
-    ]
+    "path": "/snake",
+    "name": "snake",
+    "meta": {"title": "snake", "icon": "system"},
+    "component": "practice/snake.vue"
+  },
+  {
+    "path": "/uploadTest",
+    "name": "uploadTest",
+    "meta": {"title": "upload", "icon": "system"},
+    "component": "practice/uploadTest.vue"
   }
 ]

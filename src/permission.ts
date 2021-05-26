@@ -13,15 +13,14 @@ const whiteList = ['/login', '/auth-redirect', '/bind', '/register','jsTest']
 router.beforeEach((to, from, next) => {
   NProgress.start()
   // token login 重定向
-  console.warn(router)
-  if(!store.state.permission.hasSet){
+  // 判断刷新
+  console.warn(from)
+  if(!from.name){
     store.dispatch('GenerateRoutes').then(accessRoutes => {
-      console.warn('路由添加')
       router.addRoutes(accessRoutes) // 动态添加可访问路由表 根据roles权限生成可访问的路由表
-      console.warn(accessRoutes)
-      store.commit('HAS_SET')
       // next({ ...to, replace: true }) // hack方法 确保addRoutes已完成
       next()
+
     })
   }else{
     console.warn('直接跳转')

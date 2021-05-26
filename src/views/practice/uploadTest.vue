@@ -2,21 +2,29 @@
 <template>
   <div>
     <div style="margin-top:100px"></div>
-    <el-button @click="goLogin">login</el-button>
+    <form action="/file/upload" method="post" enctype="multipart/form-data">
+        <h2>单图上传</h2>
+        <input type="file" name="logo">
+        <input type="submit" value="提交">
+    </form>
+    <el-button @click="getList">获取文件列表</el-button>
     <el-button @click="getTxt">下载</el-button>
     <div style="margin-top:20px"></div>
-    <el-button @click="postTest">post</el-button>
     <el-button @click="getTest">get</el-button>
     <div style="margin-top:20px"></div>
-    <input type="file" ref="uploadori" multiple  @change="addThings($event)">
+    <input type="file" ref="uploadori" name='logo' multiple  @change="addThings($event)">
     <el-upload
-      class="avatar-uploader"
-      action="http://47.97.73.43:3006/"
-      :show-file-list="false"
-      :on-success="handleAvatarSuccess"
-      :before-upload="beforeAvatarUpload">
-      <img v-if="imageUrl" :src="imageUrl" class="avatar">
-      <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+        action="/file/upload"
+        :data="imgData"
+        :show-file-list="false"
+        :on-success="thumbnailSuccess"
+        :on-error="thumbnailError"
+        :before-upload="thumbnailLoad"
+        accept=".png,.jpg"
+        class="avatar-uploader"
+        >
+        <img v-if="imageUrl.url" :src="imageUrl.url" class="avatar" />
+        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
     </el-upload>
   </div>
 </template>
@@ -28,7 +36,11 @@ export default {
   name: '',
   data () {
     return {
-      imageUrl: ''
+      imageUrl: {
+        url: '',
+        file: ''
+      },
+      imgData: null,
     }
   },
 
@@ -37,55 +49,46 @@ export default {
   computed: {},
 
   mounted () {
+    // URL.createObjectURL()
+    //  thumbnailSuccess(res, file, fileList){
+    //     console.log(res)
+    //     console.log(res.key)
+    //     this.imageUrl.url = URL.createObjectURL(file.raw);
+    //     this.imageUrl.file = res.key;
+    //     this.dataList.thumbnail = res.key
+    //     this.$message({
+    //         center: true,
+    //         message: "图片上传成功",
+    //         type: "success",
+    //     });
+    // }
     // http://47.97.73.43:3006/sql/admintable
     // http://47.97.73.43:3006/file/fileTest
   },
 
   methods: {
     getTest () {
-      location.href = 'http://47.97.73.43:3006/file/fileDown'
-      // getFile({
-      //   imgName: '33'
-      // }).then(() => {
+      location.href = 'http://47.97.73.43:3006/file/fileDown?name=liyu'
+      // http://47.97.73.43:3006/file/fileList
+    },
+    getList () {},
+    getTxt () {
+      const data = 'dog'
+      getFile(data)
+      // adminTable().then(() => {
       //   console.log('done')
       // }).catch()
-    },
-    postTest () {
-      uploadFile({
-        a: 1,
-        b: 2
-      }).then(() => {
-        console.log('done')
-      }).catch()
-    },
-    goLogin () {
-      this.$router.push({
-        name: 'login',
-        query: {
-          redirect: 'uploadTest'
-        }
-        // name: r.name
-      })
-    },
-    getTxt () {
-      getFile().then(() => {
-        console.log('done')
-      }).catch()
-      adminTable().then(() => {
-        console.log('done')
-      }).catch()
     },
     addThings (e) {
       console.log(e)
       const thing = this.$refs.uploadori
       console.log(thing.files)
       let formData = new FormData()
-      formData.append('file', thing.files[0]);
+      formData.append('file', thing.files[0])
       console.log(formData)
-      uploadFile(formData).then(()=>{
+      uploadFile(formData).then(() => {
         console.log('done')
       }).catch()
-      //post
 
       // console.log(thing.files[0].naturalHeight)
       // console.log(thing.files[0].naturalWidth)
@@ -97,11 +100,14 @@ export default {
       //   console.warn(img)
       // }
     },
-    handleAvatarSuccess (res, file) {
-      this.imageUrl = URL.createObjectURL(file.raw)
-      console.log(this.imageUrl)
+    thumbnailSuccess (res, file) {
+      console.log(res)
+      console.log(res.key)
+      this.imageUrl.url = URL.createObjectURL(file.raw)
+      this.imageUrl.file = res.key
     },
-    beforeAvatarUpload (file) {
+    thumbnailError () {},
+    thumbnailLoad (file) {
       const isJPG = file.type === 'image/jpeg'
       const isLt2M = file.size / 1024 / 1024 < 2
 

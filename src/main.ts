@@ -12,7 +12,6 @@ import septMethod from 'sept_method' // 自用 方法及组件
 Vue.use(septMethod)
 import vueCanvas from 'vue-canvas-effect'
 Vue.use(vueCanvas)
-console.warn(vueCanvas)
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 new Vue({

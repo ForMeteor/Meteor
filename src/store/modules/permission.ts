@@ -9,7 +9,6 @@ const permission = {
         buttons: [],
         catShow: true, // 精灵显示控制
         backShow: false, // 页面背景显示控制
-        hasSet:false
     },
 
     mutations : {
@@ -19,13 +18,12 @@ const permission = {
         changeBack(state:any){
             state.backShow = !state.backShow
         },
-        HAS_SET(state:any){
-            state.hasSet = true
-        },
         SET_ROUTES: (state:any, routes:any) => {
-            state.addRoutes = routes
-            state.routes = constantRoutes.concat(routes)
-            console.log(state.routes)
+            if(state.routes.length  == 0){
+                state.addRoutes = routes
+                state.routes = constantRoutes.concat(routes)
+                console.log(state.routes)
+            }
         },
         SET_BUTTONS: (state:any, buttons:any) => {
             state.buttons = buttons

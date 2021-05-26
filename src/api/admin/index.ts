@@ -8,6 +8,17 @@ export function postTest(data:object) {
     data:data
   })
 }
+// export function getTest(data:object) {
+//   let str = ''
+//   for(let r in data){
+//     str = str + r + '=' + data[r] + '&'
+//   }
+//   str = str.substring(0,str.length - 1) 
+//   return request({
+//     url: api.GETTEST.url + '?' +str,
+//     method: 'get',
+//   })
+// }
 export function adminTable() {
     return request({
       url: api.ADMIN01.url,
@@ -24,7 +35,6 @@ export function adminQuery(data:object) {
 export function getMenu() {
   return new Promise((resolve, reject)=>{
     let res = menu
-    console.warn(res)
     resolve(res)
   })
   // return request({

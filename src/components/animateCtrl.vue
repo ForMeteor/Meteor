@@ -41,7 +41,6 @@ export default {
   },
 
   mounted () {
-    console.warn(window.screen.width)
   },
   watch: {
     wrapShow (val) {
