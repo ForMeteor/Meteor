@@ -2,11 +2,19 @@
   <div>
     <!-- <neon-effect></neon-effect> -->
     <!-- <Can></Can> -->
-    <div ref="msgDiv" @click="websocketsend(msg)">{{msg}}</div>
+    <div ref="msgDiv">{{msg}}</div>
     <div  @click="go1">Message got outside $nextTick: {{msg1}}</div>
     <div  @click="go2">Message got inside $nextTick: {{msg2}}</div>
     <div  @click="go3">Message got outside $nextTick: {{msg3}}</div>
     <Ttt :settings="settings"></Ttt>
+    <button @click="websocketclose">断开链接</button>
+    <div class="talkBox">
+      <div class="talkItem" v-for="r in talkList">{{r}}</div>
+    </div>
+    <el-input placeholder="请输入密码" v-model="input"></el-input>
+    <button @click="websocketsend()">发送</button>
+
+
     <!-- <lines></lines>
     <light></light> -->
   </div>
@@ -49,6 +57,8 @@ export default {
   data () {
     return {
       websock: null,
+      talkList:[],
+      input:null,
       msg: 'msg to menu',
       range: 'fail to show',
       msg1: '',
@@ -123,25 +133,24 @@ export default {
       }
     },
     websocketonmessage (e) {
-      const redata = JSON.parse(e.data)
-      this.result = redata
+      console.warn(e.data)
+      this.talkList.push(e.data)
+      // const redata = JSON.parse(e.data)
+      // this.result = redata
     },
     websocketonopen () {
       console.log('链接建立')
-      const actions = {
-        test: '12345',
-        date: '7.6'
-      }
-      this.websocketsend(JSON.stringify(actions))
     },
     websocketonerror (e) {
       console.log('建立链接失败',e)
     },
     websocketclose (e) {
       console.log('断开连接', e)
+      this.websock.close()
     },
     websocketsend (Data) {
-      this.websock.send(Data)
+      this.talkList.push(this.input)
+      this.websock.send(this.input)
     },
     menu () {
       console.log('s')
@@ -168,4 +177,16 @@ export default {
 }
 </script>
 <style  scoped>
+.talkBox{
+  width:100%;
+  height:400px;
+  border:1px solid red;
+  overflow:hidden;
+  overflow-y:auto;
+}
+.talkItem{
+  width:100%;
+  height:60px;
+  line-height:60px;
+}
 </style>
