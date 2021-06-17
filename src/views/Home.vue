@@ -106,9 +106,9 @@ export default {
     // postTest(k).then((res) => {
     //   console.log(res)
     // })
-    // adminTable().then((res) => {
-    //   console.log(res)
-    // })
+    adminTable().then((res) => {
+      console.log(res)
+    })
     // adminQuery({
     //   username: 'Meteor'
     // }).then((res) => {
