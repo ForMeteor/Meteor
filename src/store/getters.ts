@@ -4,6 +4,7 @@ const getters = {
     sideNav: (state:any) => state.app.sideNav,
     catShow: (state:any) => state.permission.catShow,
     backShow: (state:any) => state.permission.backShow,
+    sthExo: (state:any) => state.permission.sthExo,
     // --账号相关
     token: (state:any) => state.user.token,
     reToken: (state:any) => state.user.reToken,

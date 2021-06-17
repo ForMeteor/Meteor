@@ -7,6 +7,7 @@ const permission = {
         routes: [], // 公共路由
         addRoutes: [], // 动态路由
         buttons: [],
+        sthExo:true,
         catShow: true, // 精灵显示控制
         backShow: false, // 页面背景显示控制
     },
@@ -27,7 +28,13 @@ const permission = {
         },
         SET_BUTTONS: (state:any, buttons:any) => {
             state.buttons = buttons
-        }
+        },
+        EXO_F: (state:any) => {
+            state.sthExo = false
+        },
+        EXO_T: (state:any) => {
+            state.sthExo = true
+        },
     },
 
     actions: {
