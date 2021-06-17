@@ -53,9 +53,39 @@ export default {
   computed: {},
 
   mounted () {
+    function age (fir, add, index) {
+      fir = fir + add
+      index--
+      if (index == 0) {
+        console.log(fir)
+      }
+      return age(fir, add, index)
+    }
+    age(10,2,1)
+    // console.log(mul(2)(3)(4)) // output : 24
+    // console.log(mul(4)(3)(4)) // output : 48
+    // console.log(this.mul(2)(3).toString())
+    function mul(x) {
+      const result = (y) => {
+        mul(x * y)
+      }
+      result.valueOf = () => x
+      result.toString = () => x
+      return result
+    }
+    let k = mul(2)(3)
+    console.log(k)
   },
 
   methods: {
+    mul (x) {
+      let fn = (y) => {
+        return this.mul(x, y)
+      }
+      fn.valueOf = () => x
+      fn.toString = () => x
+      return fn
+    },
     change () {
       this.gugu[0] = 22
       // this.$set(this.gugu, 0, 22)

@@ -2,7 +2,7 @@
   <div>
     <!-- <neon-effect></neon-effect> -->
     <!-- <Can></Can> -->
-    <div ref="msgDiv">{{msg}}</div>
+    <div ref="msgDiv" @click="websocketsend(msg)">{{msg}}</div>
     <div  @click="go1">Message got outside $nextTick: {{msg1}}</div>
     <div  @click="go2">Message got inside $nextTick: {{msg2}}</div>
     <div  @click="go3">Message got outside $nextTick: {{msg3}}</div>
@@ -48,7 +48,9 @@ export default {
   },
   data () {
     return {
+      websock: null,
       msg: 'msg to menu',
+      range: 'fail to show',
       msg1: '',
       msg2: '',
       msg3: '',
@@ -83,23 +85,23 @@ export default {
     }
   },
   mounted () {
+    this.initWebSocket()
     let k = {
       name: 'li li',
       pas: 'iopea',
       age: 18
     }
-    postTest(k).then((res) => {
-      console.log(res)
-    })
-    adminTable().then((res) => {
-      console.log(res)
-    })
-    adminQuery({
-      username: 'Meteor'
-    }).then((res) => {
-      console.log(res)
-    })
-    // getMenu().then((res) => {
+    let a = btoa('A') // "QQ=="
+    console.log(a)
+    // postTest(k).then((res) => {
+    //   console.log(res)
+    // })
+    // adminTable().then((res) => {
+    //   console.log(res)
+    // })
+    // adminQuery({
+    //   username: 'Meteor'
+    // }).then((res) => {
     //   console.log(res)
     // })
     // this.$store.dispatch('GenerateRoutes').then((res) => {
@@ -111,6 +113,36 @@ export default {
     // }).catch()
   },
   methods: {
+    initWebSocket () {
+      if (window.WebSocket) {
+        this.websock = new WebSocket('ws://47.97.73.43:3006/sql/socketTest')
+        this.websock.onmessage = this.websocketonmessage
+        this.websock.onopen = this.websocketonopen
+        this.websock.onerror = this.websocketonerror
+        this.websock.onclose = this.websocketclose
+      }
+    },
+    websocketonmessage (e) {
+      const redata = JSON.parse(e.data)
+      this.result = redata
+    },
+    websocketonopen () {
+      console.log('链接建立')
+      const actions = {
+        test: '12345',
+        date: '7.6'
+      }
+      this.websocketsend(JSON.stringify(actions))
+    },
+    websocketonerror (e) {
+      console.log('建立链接失败',e)
+    },
+    websocketclose (e) {
+      console.log('断开连接', e)
+    },
+    websocketsend (Data) {
+      this.websock.send(Data)
+    },
     menu () {
       console.log('s')
     },
@@ -129,6 +161,9 @@ export default {
         path: '/threeMain'
       })
     }
+  },
+  destroyed () {
+    // this.websock.close() // 离开路由之后断开websocket连接
   }
 }
 </script>

@@ -25,6 +25,18 @@
     "component": "canvas/index.vue"
   },
   {
+    "path": "/can_1",
+    "name": "can_1",
+    "meta": {"title": "can_1", "icon": "system"},
+    "component": "canvas/can_1.vue"
+  },
+  {
+    "path": "/can_2",
+    "name": "can_2",
+    "meta": {"title": "can_2", "icon": "system"},
+    "component": "canvas/can_2.vue"
+  },
+  {
     "path": "/threeMain",
     "name": "three",
     "meta": {"title": "three", "icon": "system"},
