@@ -32,6 +32,11 @@ export const constantRoutes: Array<RouteConfig> = [
     component: () => import('../views/About.vue')
   },
   {
+    path: '/vTable',
+    name: 'vTable',
+    component: () => import('../views/backups/vTable.vue')
+  },
+  {
     path: '/404',
     name: '404',
     component: () => import('../views/404.vue')
