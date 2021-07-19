@@ -69,6 +69,25 @@
         </el-table-column>
       </el-table-column>
     </el-table>
+    <pagination
+      v-show="total > 0"
+      :total="total"
+      :page.sync="queryParams.pageNum"
+      :limit.sync="queryParams.pageSize"
+      @pagination="getList"
+    />
+    <el-button @click="dialogVisible = true">打开</el-button>
+    <el-dialog
+      title="提示"
+      :visible.sync="dialogVisible"
+      width="30%">
+      <span>这是一段信息</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+      </span>
+    </el-dialog>
+
   </div>
 </template>
 
@@ -77,6 +96,40 @@ export default {
   name: 'vTable',
   data () {
     return {
+      total: 2,
+      dialogVisible: false,
+      queryParams: {
+        pageNum: null,
+        pageSize: null
+      },
+      editList: [
+        {
+          lable: '日期',
+          level: 1,
+          children: []
+        },
+        {
+          lable: '编号',
+          level: 1,
+          children: [
+            {
+              lable: '一号',
+              level: 2,
+              children: []
+            },
+            {
+              lable: '二号',
+              level: 2,
+              children: []
+            },
+            {
+              lable: '三号',
+              level: 2,
+              children: []
+            }
+          ]
+        }
+      ],
       tableData: [{
         date: '2016-05-02',
         name: '王小虎',
@@ -107,7 +160,11 @@ export default {
 
   mounted () {},
 
-  methods: {}
+  methods: {
+    getList () {
+      console.log('s')
+    }
+  }
 }
 
 </script>

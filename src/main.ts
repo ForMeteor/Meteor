@@ -14,6 +14,8 @@ import vueCanvas from 'vue-canvas-effect'
 Vue.use(vueCanvas)
 Vue.config.productionTip = false
 Vue.use(ElementUI)
+import Pagination from '@/views/backups/Pagination/index.vue'
+Vue.component("Pagination", Pagination)
 new Vue({
   router,
   store,
