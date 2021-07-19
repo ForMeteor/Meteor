@@ -76,59 +76,124 @@
       :limit.sync="queryParams.pageSize"
       @pagination="getList"
     />
-    <el-button @click="dialogVisible = true">打开</el-button>
-    <el-dialog
-      title="提示"
-      :visible.sync="dialogVisible"
-      width="30%">
-      <span>这是一段信息</span>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
-      </span>
-    </el-dialog>
-
+    <MyTable style="width: 100%" :col="testList" :data="testData"></MyTable>
+    <el-button @click="getk">打印</el-button>
   </div>
 </template>
 
 <script>
+import MyTable from './component/myTable.vue'
 export default {
   name: 'vTable',
   data () {
     return {
       total: 2,
-      dialogVisible: false,
       queryParams: {
         pageNum: null,
         pageSize: null
       },
       editList: [
         {
-          lable: '日期',
+          label: '日期',
           level: 1,
           children: []
         },
         {
-          lable: '编号',
+          label: '编号',
           level: 1,
           children: [
             {
-              lable: '一号',
+              label: '一号',
               level: 2,
               children: []
             },
             {
-              lable: '二号',
+              label: '二号',
               level: 2,
               children: []
             },
             {
-              lable: '三号',
+              label: '三号',
               level: 2,
               children: []
             }
           ]
         }
+      ],
+      testList: [
+        {
+          label: '第一块',
+          children: [
+            {
+              prop: 'a',
+              label: 'a级',
+              children: []
+            },
+            {
+              prop: 'b',
+              label: 'b级',
+              children: []
+            },
+            {
+              prop: 'c',
+              label: 'c级',
+              children: []
+            }
+          ]
+        },
+        {
+          label: '第二块',
+          children: [
+            {
+              prop: 'd',
+              label: 'd级',
+              children: []
+            },
+            {
+              prop: 'e',
+              label: 'e级',
+              children: []
+            },
+            {
+              prop: 'f',
+              label: 'f级',
+              children: [
+                {
+                  prop: 'ee',
+                  label: 'ee级',
+                  children: []
+                },
+                {
+                  prop: 'eeee',
+                  label: 'eeee级',
+                  children: []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      testData: [
+        {
+          a: 1,
+          b: 2,
+          c: 3,
+          d: 4,
+          e: 5,
+          f: 6,
+          ee: 66,
+          eeee: 6666
+        },
+        // {
+        //   a: 1,
+        //   b: 2,
+        //   c: 11,
+        //   d: 22,
+        //   e: 111,
+        //   f: 2333,
+        //   ee: 3266,
+        //   eeee: 1326666
+        // }
       ],
       tableData: [{
         date: '2016-05-02',
@@ -154,7 +219,9 @@ export default {
     }
   },
 
-  components: {},
+  components: {
+    MyTable
+  },
 
   computed: {},
 
@@ -163,6 +230,9 @@ export default {
   methods: {
     getList () {
       console.log('s')
+    },
+    getk () {
+      console.warn(this.testData)
     }
   }
 }
