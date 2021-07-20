@@ -13,6 +13,7 @@
       <el-input v-model="scope.row[col.prop]"></el-input>
     </template>
   </el-table-column>
+  <!-- ss -->
 </template>
 
 <script>
