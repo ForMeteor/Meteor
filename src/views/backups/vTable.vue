@@ -2,71 +2,31 @@
 <template>
   <div>
     <el-table
-      :data="tableData"
+      :data="rain"
       style="width: 100%">
       <el-table-column
-        prop="date"
+        prop="12"
         label="日期"
         width="180">
+        <template slot-scope="scope">
+          <el-input v-model="scope.row[12]"></el-input>
+        </template>
       </el-table-column>
       <el-table-column
-        prop="date"
+        prop="13"
         label="日期"
         width="180">
+        <template slot-scope="scope">
+          <el-input v-model="scope.row[13]"></el-input>
+        </template>
       </el-table-column>
       <el-table-column
-        label="绿化工作情况"
-        align="center"
+        prop="14"
+        label="日期"
         width="180">
-        <el-table-column
-          prop="name"
-          label="绿地总面积（万㎡）"
-          width="120">
-        </el-table-column>
-        <el-table-column
-          prop="name"
-          label="绿地率%"
-          width="120">
-        </el-table-column>
-        <el-table-column
-          prop="name"
-          label="姓名"
-          width="120">
-        </el-table-column>
-      </el-table-column>
-      <el-table-column
-        label="古树名木及珍贵树木"
-        align="center">
-        <el-table-column
-          label="古树（株）"
-          align="center"
-          width="180">
-          <el-table-column
-            label="一级"
-            prop="rx"
-            width="180">
-          </el-table-column>
-          <el-table-column
-            label="二级"
-            prop="rx"
-            width="180">
-          </el-table-column>
-          <el-table-column
-            label="三级"
-            prop="rx"
-            width="180">
-          </el-table-column>
-        </el-table-column>
-        <el-table-column
-          label="名木（株）"
-          prop="rx"
-          width="180">
-        </el-table-column>
-        <el-table-column
-          label="珍贵树木（株）"
-          prop="rx"
-          width="180">
-        </el-table-column>
+        <template slot-scope="scope">
+          <el-input v-model="scope.row[14]"></el-input>
+        </template>
       </el-table-column>
     </el-table>
     <pagination
@@ -88,6 +48,23 @@ export default {
   data () {
     return {
       total: 2,
+      rain: [
+        {
+          12: '45',
+          13: 'aaa',
+          14: '6'
+        },
+        {
+          12: 's',
+          13: 'asaa',
+          14: 'aada'
+        },
+        {
+          12: 'aaia',
+          13: 'aata',
+          14: 'ayaa'
+        }
+      ],
       queryParams: {
         pageNum: null,
         pageSize: null
@@ -232,7 +209,7 @@ export default {
       console.log('s')
     },
     getk () {
-      console.warn(this.testData)
+      console.warn(this.rain)
     }
   }
 }

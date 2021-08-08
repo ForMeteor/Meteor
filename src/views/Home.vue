@@ -95,7 +95,7 @@ export default {
     }
   },
   mounted () {
-    this.initWebSocket()
+    // this.initWebSocket()
     let k = {
       name: 'li li',
       pas: 'iopea',
@@ -103,12 +103,13 @@ export default {
     }
     let a = btoa('A') // "QQ=="
     console.log(a)
+    this.sub()
     // postTest(k).then((res) => {
     //   console.log(res)
     // })
-    adminTable().then((res) => {
-      console.log(res)
-    })
+    // adminTable().then((res) => {
+    //   console.log(res)
+    // })
     // adminQuery({
     //   username: 'Meteor'
     // }).then((res) => {
@@ -151,6 +152,36 @@ export default {
     websocketsend (Data) {
       this.talkList.push(this.input)
       this.websock.send(this.input)
+    },
+    async sub () {
+      let k1 = await this.jszCHECK().catch(err => {
+        console.warn('cat', err)
+      })
+      let k2 = await this.xszCHECK().catch(err => {
+        console.warn('cat2', err)
+      })
+      console.log(k1, k2)
+    },
+    jszCHECK () {
+      return new Promise((resolve, reject) => {
+        adminTable().then((res) => {
+          console.log(res)
+          reject(1111)
+        }).catch(err => {
+          console.warn(err)
+        })
+      })
+    },
+    xszCHECK () {
+      return new Promise((resolve, reject) => {
+        adminQuery({
+          username: 'Meteor'
+        }).then((res) => {
+          reject(2222)
+        }).catch(err => {
+          console.warn(err)
+        })
+      })
     },
     menu () {
       console.log('s')
