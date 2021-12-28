@@ -1,18 +1,5 @@
 [
   {
-    "path": "/webTest",
-    "name": "webTest",
-    "meta": {"title": "综合", "icon": "system"},
-    "component": "webTest.vue",
-    "children": []
-  },
-  {
-    "path": "/jsTest",
-    "name": "jsTest",
-    "meta": {"title": "逻辑", "icon": "system"},
-    "component": "jsTest.vue"
-  },
-  {
     "path": "/cssTest",
     "name": "cssTest",
     "meta": {"title": "样式动画", "icon": "system"},

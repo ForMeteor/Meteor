@@ -3,8 +3,8 @@
     <!-- <neon-effect></neon-effect> -->
     <!-- <Can></Can> -->
     <div ref="msgDiv">{{msg}}</div>
-    <div  @click="go1">Message got outside $nextTick: {{msg1}}</div>
-    <div  @click="go2">Message got inside $nextTick: {{msg2}}</div>
+    <div  >Message got outside $nextTick: {{msg1}}</div>
+    <div  >Message got inside $nextTick: {{msg2}}</div>
     <div  @click="go3">Message got outside $nextTick: {{msg3}}</div>
     <Ttt :settings="settings"></Ttt>
     <button @click="websocketclose">断开链接</button>
@@ -185,16 +185,6 @@ export default {
     },
     menu () {
       console.log('s')
-    },
-    go1 () {
-      this.$router.push({
-        path: '/webTest'
-      })
-    },
-    go2 () {
-      this.$router.push({
-        path: '/jsTest'
-      })
     },
     go3 () {
       this.$router.push({

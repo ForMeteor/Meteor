@@ -1,20 +1,25 @@
 <!-- 登录页面  -->
 <template>
   <div>
-      <div style="margin-top:100px"></div>
+      <!-- <div style="margin-top:100px"></div>
       <el-button  type="primary" @click="back">返回</el-button>
       <el-button @click="obj">change</el-button>
       <el-button @click="getT">登录</el-button>
       <el-button @click="removeT">注销</el-button>
-      <el-button @click="rout">路由</el-button>
+      <el-button @click="rout">路由</el-button> -->
       <!-- <light></light> -->
-      <neon-effect></neon-effect>
+      <!-- <neon-effect></neon-effect> -->
+      <div class="mainBox">
+        <div class="btn">登录</div>
+        <div class="glbtn glass">登录</div>
+      </div>
       <div v-for="r in menuList" :key="r.name" @click="moveTo(r)">{{r.name}}</div>
   </div>
 </template>
 
 <script>
 import { adminTable } from '@/api/admin'
+import Index from './backups/Pagination/index.vue'
 export default {
   name: 'login',
   data () {
@@ -25,6 +30,7 @@ export default {
   },
 
   components: {
+    Index
   },
 
   computed: {
@@ -183,4 +189,56 @@ export default {
 
 </script>
 <style  scoped>
+.mainBox{
+  position: fixed;
+  top: 0;left: 0;right: 0;bottom: 0;
+  margin: auto;
+  width: 400px;height: 200px;
+  border: 2px solid white;
+}
+/* .mainBox:hover{
+  filter: blur(10px);
+} */
+.btn{
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  border: 0;
+  font-family: 'Comfortaa',cursive;
+  color: rgba(255,255,255,0.5);
+  font-size: 20px;
+  border-radius: 4px;
+  box-shadow: inset 0 3px 5px rgb(255 255 255 / 50%), 0px 0 10px rgb(0 0 0 / 15%);
+  background: #020024;
+  background: linear-gradient(45deg,rgba(2,0,36,0) 5%,rgba(255,255,255,.5) 6%,rgba(255,255,255,0) 9%,rgba(255,255,255,.5) 10%,rgba(255,255,255,0) 17%,rgba(255,255,255,.5) 19%,rgba(255,255,255,0) 21%);
+  background-size: 150%;
+  background-position: right;
+  transition: 1s;
+}
+.btn:hover {
+    background-position: left;
+    color: white;
+    box-shadow: inset 0 3px 5px rgb(255 255 255), 0px 0 10px rgb(0 0 0 / 25%);
+}
+.glass {
+  background: linear-gradient( to bottom, rgba(180,180,180,0.8) 0%, rgba(180,180,180,0.5) 3%, rgba(180,180,180,0.1) 45%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 28%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.3) 65%, rgba(255,255,255,0.3) 90%, rgba(0,0,0,0.3) 95%, rgba(0,0,0,0.3) 100% );
+  border-color: rgba(0, 0, 0, 0.6);
+  border-image: none;
+  border-style: solid;
+  border-width: 0px;
+  box-shadow: 0 1px 0 0 rgb(255 255 255 / 40%) inset, 0 2px 6px rgb(0 0 0 / 50%), 0 10px rgb(0 0 0 / 5%) inset;
+}
+.glbtn{
+    position: relative;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+    text-decoration: none;
+    /* padding: 0.5em 1.5em;
+    margin: 0.5em; */
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+    transition: all 0.1s ease-in-out;
+    outline: 0;
+}
 </style>

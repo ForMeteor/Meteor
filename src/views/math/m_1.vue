@@ -4,6 +4,7 @@
 </template>
 
 <script>
+import { adminTable, adminQuery } from '@/api/admin'
 export default {
   name: 'm_1',
   data () {
