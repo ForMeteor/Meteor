@@ -8,7 +8,7 @@
       <el-button @click="removeT">注销</el-button>
       <el-button @click="rout">路由</el-button> -->
       <!-- <light></light> -->
-      <!-- <neon-effect></neon-effect> -->
+      <neon-effect></neon-effect>
       <div class="mainBox">
         <div class="btn">登录</div>
         <div class="glbtn glass">登录</div>
@@ -194,6 +194,7 @@ export default {
   top: 0;left: 0;right: 0;bottom: 0;
   margin: auto;
   width: 400px;height: 200px;
+  /* background: blue; */
   border: 2px solid white;
 }
 /* .mainBox:hover{
@@ -202,6 +203,7 @@ export default {
 .btn{
   width: 150px;
   height: 50px;
+  line-height: 50px;
   cursor: pointer;
   border: 0;
   font-family: 'Comfortaa',cursive;
@@ -209,8 +211,14 @@ export default {
   font-size: 20px;
   border-radius: 4px;
   box-shadow: inset 0 3px 5px rgb(255 255 255 / 50%), 0px 0 10px rgb(0 0 0 / 15%);
-  background: #020024;
-  background: linear-gradient(45deg,rgba(2,0,36,0) 5%,rgba(255,255,255,.5) 6%,rgba(255,255,255,0) 9%,rgba(255,255,255,.5) 10%,rgba(255,255,255,0) 17%,rgba(255,255,255,.5) 19%,rgba(255,255,255,0) 21%);
+  background: linear-gradient(45deg,
+            rgba(2,0,36,0) 5%,
+            rgba(255,255,255,.5) 6%,
+            rgba(255,255,255,0) 9%,
+            rgba(255,255,255,.5) 10%,
+            rgba(255,255,255,0) 17%,
+            rgba(255,255,255,.5) 19%,
+            rgba(255,255,255,0) 21%);
   background-size: 150%;
   background-position: right;
   transition: 1s;
@@ -233,12 +241,19 @@ export default {
     color: rgba(255, 255, 255, 0.6);
     font-size: 16px;
     text-decoration: none;
-    /* padding: 0.5em 1.5em;
-    margin: 0.5em; */
+    padding: 0.5em 1.5em;
+    margin: 0.5em;
     cursor: pointer;
     width: 200px;
     height: 40px;
+    line-height: 40px;
     transition: all 0.1s ease-in-out;
     outline: 0;
+}
+.glbtn:hover{
+    color: rgba(255, 255, 255, 0.99);
+    text-shadow: 0px 0px 2px rgb(255 255 255 / 99%), 0px 0px 4px rgb(255 255 255 / 75%);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 1px 0 0 rgb(255 255 255 / 40%) inset, 0 2px 6px rgb(0 0 0 / 50%), 0 10px rgb(0 0 0 / 5%) inset, 0 0 5px 2px rgb(255 255 255 / 75%), 0 0 10px 2px rgb(255 255 255 / 75%) inset;
 }
 </style>

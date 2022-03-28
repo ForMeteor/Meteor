@@ -3,10 +3,6 @@
     <!-- <neon-effect></neon-effect> -->
     <!-- <Can></Can> -->
     <div ref="msgDiv">{{msg}}</div>
-    <div  >Message got outside $nextTick: {{msg1}}</div>
-    <div  >Message got inside $nextTick: {{msg2}}</div>
-    <div  @click="go3">Message got outside $nextTick: {{msg3}}</div>
-    <Ttt :settings="settings"></Ttt>
     <button @click="websocketclose">断开链接</button>
     <div class="talkBox">
       <div class="talkItem" v-for="r in talkList">{{r}}</div>
@@ -22,7 +18,6 @@
 
 <script>
 import Can from './canvas/can_2.vue'
-import Ttt from './canvas/aniMenu.vue'
 import { adminTable, adminQuery, getMenu, postTest } from '@/api/admin'
 import { uploadFile } from '@/api/file'
 // @ is an alias to /src
@@ -30,7 +25,6 @@ export default {
   name: 'Home',
   components: {
     Can,
-    Ttt
   },
   computed: {
     // ...mapGetters
@@ -61,37 +55,6 @@ export default {
       input:null,
       msg: 'msg to menu',
       range: 'fail to show',
-      msg1: '',
-      msg2: '',
-      msg3: '',
-      settings: {
-        menuRadius: 100,
-        isCenter: true,
-        backImg: require('@/assets/resourse/jina.jpg'),
-        menuLength: 150,
-        itemDetail: [
-          {
-            itemRadius: 50,
-            img: require('@/assets/birds/Ivan6.jpg')
-          },
-          {
-            itemRadius: 50,
-            img: require('@/assets/birds/Ivan7.jpg')
-          },
-          {
-            itemRadius: 50,
-            img: require('@/assets/birds/Ivan8.jpg')
-          },
-          {
-            itemRadius: 50,
-            img: require('@/assets/birds/Ivan9.jpg')
-          },
-          {
-            itemRadius: 50,
-            img: require('@/assets/birds/Ivan10.jpg')
-          }
-        ]
-      }
     }
   },
   mounted () {
@@ -107,14 +70,14 @@ export default {
     // postTest(k).then((res) => {
     //   console.log(res)
     // })
-    // adminTable().then((res) => {
-    //   console.log(res)
-    // })
-    // adminQuery({
-    //   username: 'Meteor'
-    // }).then((res) => {
-    //   console.log(res)
-    // })
+    adminTable().then((res) => {
+      console.log(res)
+    })
+    adminQuery({
+      username: 'Meteor'
+    }).then((res) => {
+      console.log(res)
+    })
     // this.$store.dispatch('GenerateRoutes').then((res) => {
     //   console.log(res)
     // })

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/Home.vue'
 import login from '../views/login.vue'
+import mining from '../views/practice/mining.vue'
 
 Vue.use(VueRouter)
 
@@ -14,6 +15,7 @@ export const constantRoutes: Array<RouteConfig> = [
   {
     path: '/',
     name: 'index',
+    // component: mining
     component:Home
   },
   {
@@ -25,6 +27,11 @@ export const constantRoutes: Array<RouteConfig> = [
     path: '/home',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/map',
+    name: 'map',
+    component: () => import('../views/practice/map.vue')
   },
   {
     path: '/about',
