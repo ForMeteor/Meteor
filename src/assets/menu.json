@@ -30,6 +30,54 @@
     "component": "three/index.vue"
   },
   {
+    "path": "/fly",
+    "name": "fly",
+    "meta": {"title": "fly", "icon": "system"},
+    "component": "three/fly.vue"
+  },
+  {
+    "path": "/ani_1",
+    "name": "ani_1",
+    "meta": {"title": "ani_1", "icon": "system"},
+    "component": "three/ani_1.vue"
+  },
+  {
+    "path": "/ani_2",
+    "name": "ani_2",
+    "meta": {"title": "ani_2", "icon": "system"},
+    "component": "three/ani_2.vue"
+  },
+  {
+    "path": "/ani_3",
+    "name": "ani_3",
+    "meta": {"title": "ani_3", "icon": "system"},
+    "component": "three/ani_3.vue"
+  },
+  {
+    "path": "/ani_4",
+    "name": "ani_4",
+    "meta": {"title": "ani_4", "icon": "system"},
+    "component": "three/ani_4.vue"
+  },
+  {
+    "path": "/ani_5",
+    "name": "ani_5",
+    "meta": {"title": "ani_5", "icon": "system"},
+    "component": "three/ani_5.vue"
+  },
+  {
+    "path": "/ani_6",
+    "name": "ani_6",
+    "meta": {"title": "ani_6", "icon": "system"},
+    "component": "three/ani_6.vue"
+  },
+  {
+    "path": "/ani_7",
+    "name": "ani_7",
+    "meta": {"title": "ani_7", "icon": "system"},
+    "component": "three/ani_7.vue"
+  },
+  {
     "path": "/snake",
     "name": "snake",
     "meta": {"title": "snake", "icon": "system"},

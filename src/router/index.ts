@@ -34,11 +34,6 @@ export const constantRoutes: Array<RouteConfig> = [
     component: () => import('../views/practice/map.vue')
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import('../views/About.vue')
-  },
-  {
     path: '/vTable',
     name: 'vTable',
     component: () => import('../views/backups/vTable.vue')
